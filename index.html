@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,7 @@
     <meta name="theme-color" content="#7667d9">
 
     <meta name="description"
-        content="Acolhe — um espaço digital de informação, autocuidado e apoio emocional.">
+        content="Acolhe — um espaço digital para respirar, se ouvir, cuidar de si e buscar apoio.">
 
     <meta property="og:title" content="Acolhe — Você não precisa passar por tudo sozinho.">
     <meta property="og:description"
@@ -18,7 +19,10 @@
 
     <title>Acolhe — Um espaço para você</title>
 
-    <!-- Fontes -->
+    <!-- =========================================================
+         FONTES
+    ========================================================== -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -26,11 +30,12 @@
         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
 
+
     <style>
 
         /* =========================================================
            RESET
-        ========================================================= */
+        ========================================================== */
 
         * {
             margin: 0;
@@ -57,7 +62,8 @@
 
         button,
         input,
-        textarea {
+        textarea,
+        select {
             font: inherit;
         }
 
@@ -72,7 +78,7 @@
 
         /* =========================================================
            VARIÁVEIS
-        ========================================================= */
+        ========================================================== */
 
         :root {
             --primary: #7667d9;
@@ -89,8 +95,29 @@
         }
 
         /* =========================================================
+           ACESSIBILIDADE
+        ========================================================== */
+
+        :focus-visible {
+            outline: 3px solid rgba(118, 103, 217, .35);
+            outline-offset: 3px;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* =========================================================
            CONTAINER
-        ========================================================= */
+        ========================================================== */
 
         .container {
             width: min(1120px, 92%);
@@ -99,7 +126,7 @@
 
         /* =========================================================
            NAVBAR
-        ========================================================= */
+        ========================================================== */
 
         header {
             position: sticky;
@@ -179,7 +206,7 @@
 
         /* =========================================================
            HERO
-        ========================================================= */
+        ========================================================== */
 
         .hero {
             padding: 105px 0 80px;
@@ -239,6 +266,7 @@
             transition: .25s;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
         }
 
@@ -272,7 +300,7 @@
 
         /* =========================================================
            HERO CARD
-        ========================================================= */
+        ========================================================== */
 
         .hero-card {
             background: linear-gradient(145deg, #eeeaff, #edf5ff);
@@ -317,7 +345,7 @@
 
         /* =========================================================
            SEÇÕES
-        ========================================================= */
+        ========================================================== */
 
         section {
             padding: 90px 0;
@@ -349,8 +377,42 @@
         }
 
         /* =========================================================
+           ACOLHIMENTO INICIAL
+        ========================================================== */
+
+        .welcome-message {
+            max-width: 780px;
+            margin: 0 auto 35px;
+            padding: 30px;
+            border-radius: 25px;
+            background: var(--lavender);
+            text-align: center;
+        }
+
+        .welcome-message h3 {
+            font-family: "Manrope", sans-serif;
+            font-size: 1.45rem;
+            margin-bottom: 12px;
+        }
+
+        .welcome-message p {
+            color: var(--muted);
+            margin-bottom: 5px;
+        }
+
+        .welcome-message p:last-child {
+            margin-bottom: 0;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        body.dark .welcome-message {
+            background: #292442;
+        }
+
+        /* =========================================================
            CHECK-IN
-        ========================================================= */
+        ========================================================== */
 
         .checkin {
             background: #fff;
@@ -415,6 +477,11 @@
             display: block;
         }
 
+        .checkin-result p {
+            color: var(--muted);
+            margin-top: 7px;
+        }
+
         @keyframes fadeUp {
             from {
                 opacity: 0;
@@ -428,8 +495,40 @@
         }
 
         /* =========================================================
+           PRÓXIMO PASSO
+        ========================================================== */
+
+        .need-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .need-option {
+            padding: 15px;
+            border-radius: 15px;
+            border: 1px solid var(--border);
+            background: white;
+            font-weight: 700;
+            text-align: left;
+            transition: .2s;
+        }
+
+        .need-option:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        body.dark .need-option {
+            background: #211e31;
+            color: white;
+            border-color: #343048;
+        }
+
+        /* =========================================================
            FERRAMENTAS
-        ========================================================= */
+        ========================================================== */
 
         .tools-grid {
             display: grid;
@@ -473,8 +572,77 @@
         }
 
         /* =========================================================
+           ACOLHE AGORA
+        ========================================================== */
+
+        .acolhe-agora {
+            background: linear-gradient(145deg, #f2efff, #edf5ff);
+            border-radius: 28px;
+            padding: 35px;
+            margin-bottom: 24px;
+        }
+
+        body.dark .acolhe-agora {
+            background: linear-gradient(145deg, #292342, #1f2b42);
+        }
+
+        .acolhe-agora h3 {
+            font-family: "Manrope", sans-serif;
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+        }
+
+        .acolhe-agora > p {
+            color: var(--muted);
+            margin-bottom: 25px;
+        }
+
+        .agora-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .agora-step {
+            padding: 18px;
+            border-radius: 17px;
+            background: rgba(255,255,255,.65);
+            border: 1px solid rgba(118,103,217,.08);
+            text-align: center;
+        }
+
+        body.dark .agora-step {
+            background: rgba(33,30,49,.7);
+        }
+
+        .agora-step strong {
+            display: block;
+            margin-top: 7px;
+            font-size: .9rem;
+        }
+
+        .agora-step span {
+            font-size: 1.7rem;
+        }
+
+        .agora-message {
+            min-height: 65px;
+            padding: 18px;
+            border-radius: 15px;
+            background: white;
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+        }
+
+        body.dark .agora-message {
+            background: #211e31;
+        }
+
+        /* =========================================================
            RESPIRAÇÃO
-        ========================================================= */
+        ========================================================== */
 
         .breathing-area {
             text-align: center;
@@ -495,6 +663,10 @@
 
         .breathing-circle.inhale {
             animation: inhale 4s ease-in-out forwards;
+        }
+
+        .breathing-circle.hold {
+            transform: scale(1);
         }
 
         .breathing-circle.exhale {
@@ -528,6 +700,12 @@
             margin: 12px 0 20px;
         }
 
+        .breathing-timer {
+            color: var(--muted);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
         .breathing-controls {
             display: flex;
             justify-content: center;
@@ -543,6 +721,10 @@
             font-weight: 700;
         }
 
+        .small-btn:hover {
+            border-color: var(--primary);
+        }
+
         body.dark .small-btn {
             background: #29263a;
             color: white;
@@ -550,8 +732,8 @@
         }
 
         /* =========================================================
-           DIÁRIO
-        ========================================================= */
+           DIÁRIO / REFLEXÕES
+        ========================================================== */
 
         textarea {
             width: 100%;
@@ -590,9 +772,58 @@
             color: var(--muted);
         }
 
+        .reflections-list {
+            margin-top: 25px;
+            display: grid;
+            gap: 12px;
+        }
+
+        .reflection {
+            background: #faf9fd;
+            border: 1px solid var(--border);
+            border-radius: 17px;
+            padding: 18px;
+        }
+
+        body.dark .reflection {
+            background: #181624;
+            border-color: #39354b;
+        }
+
+        .reflection-meta {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            align-items: center;
+            margin-bottom: 10px;
+            color: var(--muted);
+            font-size: .78rem;
+        }
+
+        .reflection-text {
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .delete-reflection {
+            border: 0;
+            background: transparent;
+            color: #9a7380;
+            font-size: .82rem;
+            font-weight: 700;
+        }
+
+        .empty-state {
+            padding: 22px;
+            text-align: center;
+            border: 1px dashed var(--border);
+            border-radius: 17px;
+            color: var(--muted);
+        }
+
         /* =========================================================
            TAREFAS
-        ========================================================= */
+        ========================================================== */
 
         .tasks {
             display: grid;
@@ -652,9 +883,27 @@
             font-size: .85rem;
         }
 
+        .daily-message {
+            margin-top: 18px;
+            padding: 15px;
+            border-radius: 15px;
+            background: var(--soft-green);
+            color: #4c655a;
+            display: none;
+        }
+
+        .daily-message.show {
+            display: block;
+        }
+
+        body.dark .daily-message {
+            background: #193027;
+            color: #c8e6d9;
+        }
+
         /* =========================================================
            CONTEÚDO
-        ========================================================= */
+        ========================================================== */
 
         .topics {
             display: grid;
@@ -691,8 +940,199 @@
         }
 
         /* =========================================================
-           PEDIR AJUDA
-        ========================================================= */
+           ATIVIDADES
+        ========================================================== */
+
+        .activities {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .activity {
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            padding: 24px;
+            background: white;
+            transition: .25s;
+        }
+
+        body.dark .activity {
+            background: #211e31;
+            border-color: #343048;
+        }
+
+        .activity:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+
+        .activity-time {
+            display: inline-block;
+            padding: 5px 9px;
+            background: var(--lavender);
+            color: var(--primary-dark);
+            border-radius: 999px;
+            font-size: .75rem;
+            font-weight: 800;
+            margin-bottom: 13px;
+        }
+
+        .activity h3 {
+            margin-bottom: 8px;
+            font-family: "Manrope", sans-serif;
+        }
+
+        .activity p {
+            color: var(--muted);
+            font-size: .9rem;
+            margin-bottom: 15px;
+        }
+
+        /* =========================================================
+           MEU ESPAÇO
+        ========================================================== */
+
+        .space-intro {
+            background: var(--lavender);
+            border-radius: 28px;
+            padding: 30px;
+            margin-bottom: 25px;
+        }
+
+        body.dark .space-intro {
+            background: #292442;
+        }
+
+        .space-intro h3 {
+            font-family: "Manrope", sans-serif;
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+        }
+
+        .space-intro p {
+            color: var(--muted);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .stat {
+            padding: 22px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+        }
+
+        body.dark .stat {
+            background: #211e31;
+            border-color: #343048;
+        }
+
+        .stat-number {
+            font-family: "Manrope", sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            color: var(--muted);
+            font-size: .83rem;
+        }
+
+        .history-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 25px;
+        }
+
+        body.dark .history-card {
+            background: #211e31;
+            border-color: #343048;
+        }
+
+        .history-card h3 {
+            font-family: "Manrope", sans-serif;
+            margin-bottom: 18px;
+        }
+
+        .history-list {
+            display: grid;
+            gap: 10px;
+        }
+
+        .history-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 13px 15px;
+            background: #faf9fd;
+            border-radius: 13px;
+        }
+
+        body.dark .history-item {
+            background: #181624;
+        }
+
+        .history-date {
+            color: var(--muted);
+            font-size: .82rem;
+        }
+
+        /* =========================================================
+           CONQUISTAS
+        ========================================================== */
+
+        .achievements {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .achievement {
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 20px;
+            background: white;
+            opacity: .5;
+            transition: .25s;
+        }
+
+        body.dark .achievement {
+            background: #211e31;
+            border-color: #343048;
+        }
+
+        .achievement.unlocked {
+            opacity: 1;
+            box-shadow: var(--shadow);
+            border-color: rgba(118,103,217,.35);
+        }
+
+        .achievement-icon {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .achievement h3 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .achievement p {
+            color: var(--muted);
+            font-size: .82rem;
+        }
+
+        /* =========================================================
+           AJUDA
+        ========================================================== */
 
         .help-grid {
             display: grid;
@@ -738,9 +1178,62 @@
             color: var(--primary-dark);
         }
 
+        .help-now {
+            position: relative;
+        }
+
+        .help-now::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 28px;
+            border: 1px solid rgba(190, 80, 100, .08);
+            pointer-events: none;
+        }
+
+        .help-note {
+            font-size: .84rem;
+            color: var(--muted);
+            margin-top: 14px;
+        }
+
+        /* =========================================================
+           BOTÃO DE AJUDA FIXO
+        ========================================================== */
+
+        .floating-help {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 1200;
+            border: 0;
+            border-radius: 999px;
+            padding: 13px 17px;
+            background: white;
+            color: var(--text);
+            box-shadow: 0 12px 35px rgba(50,40,90,.18);
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid var(--border);
+            transition: .25s;
+        }
+
+        .floating-help:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
+        }
+
+        body.dark .floating-help {
+            background: #211e31;
+            color: white;
+            border-color: #343048;
+        }
+
         /* =========================================================
            FRASE
-        ========================================================= */
+        ========================================================== */
 
         .quote-section {
             padding: 70px 0;
@@ -770,7 +1263,7 @@
 
         /* =========================================================
            DISCLAIMER
-        ========================================================= */
+        ========================================================== */
 
         .disclaimer {
             padding: 35px;
@@ -787,7 +1280,7 @@
 
         /* =========================================================
            FOOTER
-        ========================================================= */
+        ========================================================== */
 
         footer {
             padding: 45px 0;
@@ -813,8 +1306,42 @@
         }
 
         /* =========================================================
+           TOAST
+        ========================================================== */
+
+        .toast {
+            position: fixed;
+            left: 50%;
+            bottom: 25px;
+            transform: translate(-50%, 30px);
+            opacity: 0;
+            pointer-events: none;
+            z-index: 2000;
+            background: #27243a;
+            color: white;
+            padding: 13px 19px;
+            border-radius: 999px;
+            box-shadow: 0 15px 40px rgba(30,25,60,.2);
+            transition: .3s ease;
+            font-size: .9rem;
+            font-weight: 700;
+            max-width: 90%;
+            text-align: center;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
+
+        body.dark .toast {
+            background: #eeeafc;
+            color: #27243a;
+        }
+
+        /* =========================================================
            REVEAL
-        ========================================================= */
+        ========================================================== */
 
         .reveal {
             opacity: 0;
@@ -829,7 +1356,7 @@
 
         /* =========================================================
            RESPONSIVO
-        ========================================================= */
+        ========================================================== */
 
         @media (max-width: 900px) {
 
@@ -843,8 +1370,21 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .topics {
+            .topics,
+            .activities {
                 grid-template-columns: 1fr 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .achievements {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .agora-steps {
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .hero {
@@ -867,7 +1407,11 @@
             }
 
             .feelings-grid,
-            .topics {
+            .topics,
+            .activities,
+            .stats-grid,
+            .achievements,
+            .need-options {
                 grid-template-columns: 1fr;
             }
 
@@ -883,16 +1427,53 @@
             .quote {
                 padding: 45px 25px;
             }
+
+            .agora-steps {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .floating-help {
+                right: 12px;
+                bottom: 12px;
+                padding: 11px 14px;
+                font-size: .82rem;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
         }
 
     </style>
+
 </head>
+
 
 <body>
 
     <!-- =========================================================
          NAVBAR
-    ========================================================= -->
+    ========================================================== -->
 
     <header>
 
@@ -908,11 +1489,14 @@
 
                 </a>
 
+
                 <div class="nav-links">
 
                     <a href="#checkin">Como você está?</a>
 
                     <a href="#ferramentas">Ferramentas</a>
+
+                    <a href="#meu-espaco">Meu espaço</a>
 
                     <a href="#entenda">Entenda</a>
 
@@ -920,12 +1504,15 @@
 
                 </div>
 
+
                 <button
                     class="theme-toggle"
                     id="themeToggle"
                     aria-label="Alternar modo escuro"
                     title="Alternar modo escuro">
+
                     🌙
+
                 </button>
 
             </nav>
@@ -953,26 +1540,44 @@
                             🌿 Um espaço para respirar
                         </span>
 
+
                         <h1>
+
                             Você não precisa passar por
+
                             <span>tudo sozinho.</span>
+
                         </h1>
 
+
                         <p>
+
                             O Acolhe é um espaço digital para você
-                            parar por alguns minutos, entender o que
-                            está sentindo, cuidar de si e encontrar
-                            caminhos para buscar apoio.
+                            parar por alguns minutos, se ouvir,
+                            colocar para fora o que está sentindo,
+                            cuidar de si e encontrar caminhos
+                            para buscar apoio.
+
                         </p>
+
 
                         <div class="hero-buttons">
 
-                            <a href="#checkin" class="btn btn-primary">
+                            <a
+                                href="#checkin"
+                                class="btn btn-primary">
+
                                 🌱 Quero começar
+
                             </a>
 
-                            <a href="#ajuda" class="btn btn-secondary">
+
+                            <a
+                                href="#ajuda"
+                                class="btn btn-secondary">
+
                                 🤍 Preciso de ajuda
+
                             </a>
 
                         </div>
@@ -987,6 +1592,49 @@
                         </div>
 
                     </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             ACOLHIMENTO
+        ====================================================== -->
+
+        <section>
+
+            <div class="container">
+
+                <div class="welcome-message reveal">
+
+                    <h3>
+                        Pode chegar.
+                    </h3>
+
+                    <p>
+                        Você não precisa saber explicar o que está sentindo.
+                    </p>
+
+                    <p>
+                        Não precisa estar bem.
+                    </p>
+
+                    <p>
+                        Não precisa ter uma resposta.
+                    </p>
+
+                    <p>
+                        Pode simplesmente ficar aqui por um momento.
+                    </p>
+
+                    <br>
+
+                    <p>
+                        Os dias ruins não são a vida inteira. 🌿
+                    </p>
 
                 </div>
 
@@ -1014,8 +1662,10 @@
                     </h2>
 
                     <p>
-                        Não existe resposta certa. Escolha o que
-                        mais se aproxima de como você está se sentindo.
+                        Não existe resposta certa.
+                        Você pode escolher o que mais se aproxima
+                        de como está agora — ou simplesmente dizer
+                        que não sabe.
                     </p>
 
                 </div>
@@ -1023,31 +1673,16 @@
 
                 <div class="feelings-grid reveal">
 
-                    <button class="feeling-card" data-feeling="ansioso">
-
-                        <div class="feeling-icon">
-                            😰
-                        </div>
-
-                        <strong>
-                            Estou ansioso(a)
-                        </strong>
-
-                        <span>
-                            Minha cabeça não para.
-                        </span>
-
-                    </button>
-
-
-                    <button class="feeling-card" data-feeling="triste">
+                    <button
+                        class="feeling-card"
+                        data-feeling="nao-bem">
 
                         <div class="feeling-icon">
                             😔
                         </div>
 
                         <strong>
-                            Estou triste
+                            Não estou bem
                         </strong>
 
                         <span>
@@ -1057,24 +1692,66 @@
                     </button>
 
 
-                    <button class="feeling-card" data-feeling="sobrecarregado">
+                    <button
+                        class="feeling-card"
+                        data-feeling="nao-sei">
+
+                        <div class="feeling-icon">
+                            😶
+                        </div>
+
+                        <strong>
+                            Não sei o que estou sentindo
+                        </strong>
+
+                        <span>
+                            Só sei que alguma coisa não está bem.
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="feeling-card"
+                        data-feeling="exausto">
 
                         <div class="feeling-icon">
                             🫠
                         </div>
 
                         <strong>
-                            Estou sobrecarregado(a)
+                            Estou exausto(a)
                         </strong>
 
                         <span>
-                            Parece que é coisa demais.
+                            Estou sem energia para quase tudo.
                         </span>
 
                     </button>
 
 
-                    <button class="feeling-card" data-feeling="sozinho">
+                    <button
+                        class="feeling-card"
+                        data-feeling="cabeca">
+
+                        <div class="feeling-icon">
+                            💭
+                        </div>
+
+                        <strong>
+                            Minha cabeça não para
+                        </strong>
+
+                        <span>
+                            São pensamentos demais ao mesmo tempo.
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="feeling-card"
+                        data-feeling="sozinho">
 
                         <div class="feeling-icon">
                             🥺
@@ -1085,75 +1762,102 @@
                         </strong>
 
                         <span>
-                            Eu queria conversar.
+                            Eu queria ter alguém por perto.
                         </span>
 
                     </button>
 
 
-                    <button class="feeling-card" data-feeling="cansado">
+                    <button
+                        class="feeling-card"
+                        data-feeling="triste">
 
                         <div class="feeling-icon">
-                            😴
+                            🌧️
                         </div>
 
                         <strong>
-                            Estou sem energia
+                            Estou triste
                         </strong>
 
                         <span>
-                            Tudo parece exigir esforço.
+                            Tem um peso difícil de explicar.
                         </span>
 
                     </button>
 
 
-                    <button class="feeling-card" data-feeling="confuso">
+                    <button
+                        class="feeling-card"
+                        data-feeling="angustiado">
 
                         <div class="feeling-icon">
-                            😵‍💫
+                            😰
                         </div>
 
                         <strong>
-                            Estou confuso(a)
+                            Estou angustiado(a)
                         </strong>
 
                         <span>
-                            Nem sei explicar o que sinto.
+                            Preciso desacelerar um pouco.
                         </span>
 
                     </button>
 
 
-                    <button class="feeling-card" data-feeling="melhor">
+                    <button
+                        class="feeling-card"
+                        data-feeling="acolhido">
 
                         <div class="feeling-icon">
-                            🙂
+                            🫂
                         </div>
 
                         <strong>
-                            Estou melhor hoje
+                            Só queria ser acolhido(a)
                         </strong>
 
                         <span>
-                            Hoje está um pouco mais leve.
+                            Não quero resolver nada agora.
                         </span>
 
                     </button>
 
 
-                    <button class="feeling-card" data-feeling="outro">
+                    <button
+                        class="feeling-card"
+                        data-feeling="colocar-fora">
 
                         <div class="feeling-icon">
-                            💭
+                            💬
                         </div>
 
                         <strong>
-                            Outra coisa
+                            Quero colocar para fora
                         </strong>
 
                         <span>
-                            É difícil colocar em palavras.
+                            Preciso falar ou escrever.
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="feeling-card"
+                        data-feeling="melhor">
+
+                        <div class="feeling-icon">
+                            🌱
+                        </div>
+
+                        <strong>
+                            Hoje estou um pouco melhor
+                        </strong>
+
+                        <span>
+                            Tem um pouco mais de leveza hoje.
                         </span>
 
                     </button>
@@ -1161,16 +1865,86 @@
                 </div>
 
 
-                <div class="checkin-result" id="checkinResult">
+                <div
+                    class="checkin-result"
+                    id="checkinResult"
+                    aria-live="polite">
 
                     <strong id="resultTitle">
                         Você está sendo ouvido.
                     </strong>
 
                     <p id="resultText">
-                        Obrigado por parar alguns minutos para olhar
-                        para o que está sentindo.
+                        Obrigado por parar alguns minutos
+                        para olhar para o que está sentindo.
                     </p>
+
+
+                    <div id="needContainer" style="display:none;">
+
+                        <p style="margin-top:20px; font-weight:700;">
+                            O que você precisa agora?
+                        </p>
+
+
+                        <div class="need-options">
+
+                            <button
+                                class="need-option"
+                                data-action="acolher">
+
+                                🫂 Ser acolhido
+
+                            </button>
+
+
+                            <button
+                                class="need-option"
+                                data-action="respirar">
+
+                                🌬️ Respirar
+
+                            </button>
+
+
+                            <button
+                                class="need-option"
+                                data-action="escrever">
+
+                                📝 Colocar para fora
+
+                            </button>
+
+
+                            <button
+                                class="need-option"
+                                data-action="organizar">
+
+                                🧠 Organizar pensamentos
+
+                            </button>
+
+
+                            <button
+                                class="need-option"
+                                data-action="pausa">
+
+                                🌱 Fazer uma pequena pausa
+
+                            </button>
+
+
+                            <button
+                                class="need-option"
+                                data-action="ajuda">
+
+                                💬 Procurar ajuda
+
+                            </button>
+
+                        </div>
+
+                    </div>
 
                 </div>
 
@@ -1205,6 +1979,68 @@
                 </div>
 
 
+                <!-- ACOLHE AGORA -->
+
+                <div class="acolhe-agora reveal">
+
+                    <h3>
+                        🌿 Acolhe Agora
+                    </h3>
+
+                    <p>
+                        Vamos cuidar apenas dos próximos dois minutos.
+                        Você não precisa resolver sua vida agora.
+                    </p>
+
+
+                    <div class="agora-steps">
+
+                        <div class="agora-step">
+                            <span>⏸️</span>
+                            <strong>Parar</strong>
+                        </div>
+
+                        <div class="agora-step">
+                            <span>🌬️</span>
+                            <strong>Respirar</strong>
+                        </div>
+
+                        <div class="agora-step">
+                            <span>💭</span>
+                            <strong>Perceber</strong>
+                        </div>
+
+                        <div class="agora-step">
+                            <span>🌱</span>
+                            <strong>Escolher</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="agora-message"
+                        id="agoraMessage"
+                        aria-live="polite">
+
+                        Comece apenas ficando aqui por alguns segundos.
+                        Não precisa fazer mais nada.
+
+                    </div>
+
+
+                    <button
+                        class="btn btn-primary"
+                        id="startAgora"
+                        style="margin-top:20px;">
+
+                        🌿 Começar Acolhe Agora
+
+                    </button>
+
+                </div>
+
+
                 <div class="tools-grid">
 
                     <!-- RESPIRAÇÃO -->
@@ -1224,6 +2060,7 @@
                             Siga o movimento do círculo.
                         </p>
 
+
                         <div class="breathing-area">
 
                             <div
@@ -1236,30 +2073,69 @@
 
                             </div>
 
+
                             <div
                                 class="breathing-status"
                                 id="breathingStatus">
+
                                 Escolha uma duração.
+
                             </div>
+
+
+                            <div
+                                class="breathing-timer"
+                                id="breathingTimer">
+
+                                00:00
+
+                            </div>
+
 
                             <div class="breathing-controls">
 
                                 <button
                                     class="small-btn"
                                     onclick="startBreathing(1)">
+
                                     1 minuto
+
                                 </button>
+
 
                                 <button
                                     class="small-btn"
                                     onclick="startBreathing(3)">
+
                                     3 minutos
+
                                 </button>
+
 
                                 <button
                                     class="small-btn"
                                     onclick="startBreathing(5)">
+
                                     5 minutos
+
+                                </button>
+
+
+                                <button
+                                    class="small-btn"
+                                    onclick="pauseBreathing()">
+
+                                    Pausar
+
+                                </button>
+
+
+                                <button
+                                    class="small-btn"
+                                    onclick="resetBreathing()">
+
+                                    Reiniciar
+
                                 </button>
 
                             </div>
@@ -1282,24 +2158,39 @@
                         </h3>
 
                         <p>
-                            Escreva sem precisar organizar seus pensamentos.
+                            Não precisa escrever bonito.
+                            Não precisa fazer sentido.
+                            Não precisa organizar seus pensamentos antes.
+                            Só coloque para fora.
                         </p>
+
 
                         <textarea
                             id="journal"
-                            placeholder="O que está passando pela sua cabeça agora?"></textarea>
+                            placeholder="Escreva o que estiver passando pela sua cabeça agora..."></textarea>
+
 
                         <div class="journal-actions">
 
                             <span class="privacy-note">
-                                🔒 Seu texto fica salvo apenas neste navegador.
+                                🔒 Salvo apenas neste navegador.
                             </span>
+
 
                             <button
                                 class="btn btn-primary"
                                 onclick="saveJournal()">
+
                                 Guardar
+
                             </button>
+
+                        </div>
+
+
+                        <div
+                            class="reflections-list"
+                            id="reflectionsList">
 
                         </div>
 
@@ -1319,42 +2210,70 @@
                         </h3>
 
                         <p>
-                            Não precisa fazer tudo. Escolha pequenas coisas.
+                            Não precisa fazer tudo.
+                            Escolha pequenas coisas para cuidar de você.
                         </p>
+
 
                         <div class="tasks">
 
                             <div class="task">
                                 <input type="checkbox" id="task1">
-                                <label for="task1">Beber um pouco de água</label>
+                                <label for="task1">
+                                    Beber um pouco de água
+                                </label>
                             </div>
+
 
                             <div class="task">
                                 <input type="checkbox" id="task2">
-                                <label for="task2">Respirar por um minuto</label>
+                                <label for="task2">
+                                    Respirar por um minuto
+                                </label>
                             </div>
+
 
                             <div class="task">
                                 <input type="checkbox" id="task3">
-                                <label for="task3">Comer alguma coisa</label>
+                                <label for="task3">
+                                    Comer alguma coisa
+                                </label>
                             </div>
+
 
                             <div class="task">
                                 <input type="checkbox" id="task4">
-                                <label for="task4">Tomar um banho</label>
+                                <label for="task4">
+                                    Tomar um banho
+                                </label>
                             </div>
+
 
                             <div class="task">
                                 <input type="checkbox" id="task5">
-                                <label for="task5">Abrir a janela</label>
+                                <label for="task5">
+                                    Fazer uma pequena pausa
+                                </label>
                             </div>
+
 
                             <div class="task">
                                 <input type="checkbox" id="task6">
-                                <label for="task6">Conversar com alguém</label>
+                                <label for="task6">
+                                    Conversar com alguém
+                                </label>
+                            </div>
+
+
+                            <div class="task">
+                                <input type="checkbox" id="task7">
+                                <label for="task7">
+                                    Descansar um pouco
+                                </label>
                             </div>
 
                         </div>
+
 
                         <div class="progress-wrap">
 
@@ -1367,11 +2286,24 @@
 
                             </div>
 
+
                             <span
                                 class="progress-text"
                                 id="progressText">
-                                0 de 6 concluídas
+
+                                0 de 7 concluídas
+
                             </span>
+
+
+                            <div
+                                class="daily-message"
+                                id="dailyMessage">
+
+                                🌱 Você fez alguma coisa por você hoje.
+                                Isso importa.
+
+                            </div>
 
                         </div>
 
@@ -1394,6 +2326,7 @@
                             Às vezes, começar uma conversa é a parte
                             mais difícil.
                         </p>
+
 
                         <div class="checkin-result show">
 
@@ -1419,6 +2352,468 @@
 
 
         <!-- =====================================================
+             MEU ESPAÇO
+        ====================================================== -->
+
+        <section id="meu-espaco">
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <div class="mini">
+                        MEU ESPAÇO
+                    </div>
+
+                    <h2>
+                        Esse cantinho é seu.
+                    </h2>
+
+                    <p>
+                        Um lugar para guardar pequenos pedaços
+                        do que você está vivendo.
+                    </p>
+
+                </div>
+
+
+                <div class="space-intro reveal">
+
+                    <h3>
+                        🌿 Você esteve aqui.
+                    </h3>
+
+                    <p>
+                        O Acolhe não mede se você está “melhor”
+                        ou “pior”. Ele guarda pequenos registros
+                        da sua caminhada para lembrar que você
+                        esteve aqui, voltou e continuou.
+                    </p>
+
+                </div>
+
+
+                <div class="stats-grid">
+
+                    <div class="stat reveal">
+
+                        <div
+                            class="stat-number"
+                            id="statReflections">
+
+                            0
+
+                        </div>
+
+                        <div class="stat-label">
+                            coisas que você colocou para fora
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat reveal">
+
+                        <div
+                            class="stat-number"
+                            id="statBreathing">
+
+                            0
+
+                        </div>
+
+                        <div class="stat-label">
+                            momentos em que parou para respirar
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat reveal">
+
+                        <div
+                            class="stat-number"
+                            id="statCheckins">
+
+                            0
+
+                        </div>
+
+                        <div class="stat-label">
+                            vezes em que contou como estava
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat reveal">
+
+                        <div
+                            class="stat-number"
+                            id="statCare">
+
+                            0
+
+                        </div>
+
+                        <div class="stat-label">
+                            pequenos cuidados registrados
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="history-card reveal">
+
+                    <h3>
+                        📅 Sua caminhada
+                    </h3>
+
+
+                    <div
+                        class="history-list"
+                        id="historyList">
+
+                    </div>
+
+                </div>
+
+                <br>
+
+
+                <div class="section-heading reveal">
+
+                    <div class="mini">
+                        CONQUISTAS
+                    </div>
+
+                    <h2>
+                        Pequenos passos também contam.
+                    </h2>
+
+                    <p>
+                        Não são notas sobre sua saúde.
+                        São apenas pequenas lembranças de cuidado.
+                    </p>
+
+                </div>
+
+
+                <div class="achievements">
+
+                    <div
+                        class="achievement"
+                        id="achievementFirst">
+
+                        <div class="achievement-icon">
+                            🌱
+                        </div>
+
+                        <h3>
+                            Primeiro passo
+                        </h3>
+
+                        <p>
+                            Você fez seu primeiro registro.
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        class="achievement"
+                        id="achievementWrite">
+
+                        <div class="achievement-icon">
+                            📝
+                        </div>
+
+                        <h3>
+                            Colocando para fora
+                        </h3>
+
+                        <p>
+                            Você escreveu o que estava sentindo.
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        class="achievement"
+                        id="achievementBreathe">
+
+                        <div class="achievement-icon">
+                            🌬️
+                        </div>
+
+                        <h3>
+                            Respira
+                        </h3>
+
+                        <p>
+                            Você reservou um momento para respirar.
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        class="achievement"
+                        id="achievementCare">
+
+                        <div class="achievement-icon">
+                            🌿
+                        </div>
+
+                        <h3>
+                            Cuidando de você
+                        </h3>
+
+                        <p>
+                            Você completou um pequeno cuidado.
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        class="achievement"
+                        id="achievementSeven">
+
+                        <div class="achievement-icon">
+                            🌿
+                        </div>
+
+                        <h3>
+                            7 dias cuidando de você
+                        </h3>
+
+                        <p>
+                            Você registrou cuidados em 7 dias.
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        class="achievement"
+                        id="achievementReturn">
+
+                        <div class="achievement-icon">
+                            💜
+                        </div>
+
+                        <h3>
+                            Você voltou
+                        </h3>
+
+                        <p>
+                            Você voltou ao Acolhe em outro momento.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             ATIVIDADES
+        ====================================================== -->
+
+        <section>
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <div class="mini">
+                        PEQUENAS PAUSAS
+                    </div>
+
+                    <h2>
+                        Escolha uma coisa pequena.
+                    </h2>
+
+                    <p>
+                        Não é sobre produtividade.
+                        É sobre cuidar um pouco de você.
+                    </p>
+
+                </div>
+
+
+                <div class="activities">
+
+                    <article class="activity reveal">
+
+                        <span class="activity-time">
+                            5 MIN
+                        </span>
+
+                        <h3>
+                            🌬️ Respire olhando pela janela
+                        </h3>
+
+                        <p>
+                            Pare por alguns minutos e apenas observe
+                            o que está ao seu redor.
+                        </p>
+
+                        <button
+                            class="small-btn activity-btn"
+                            data-activity="Respirar e observar por alguns minutos.">
+
+                            Escolher
+
+                        </button>
+
+                    </article>
+
+
+                    <article class="activity reveal">
+
+                        <span class="activity-time">
+                            5 MIN
+                        </span>
+
+                        <h3>
+                            💧 Beba água devagar
+                        </h3>
+
+                        <p>
+                            Faça isso sem pressa. Apenas perceba
+                            esse pequeno cuidado.
+                        </p>
+
+                        <button
+                            class="small-btn activity-btn"
+                            data-activity="Beber um pouco de água com calma.">
+
+                            Escolher
+
+                        </button>
+
+                    </article>
+
+
+                    <article class="activity reveal">
+
+                        <span class="activity-time">
+                            10 MIN
+                        </span>
+
+                        <h3>
+                            🎧 Escute uma música
+                        </h3>
+
+                        <p>
+                            Escolha uma música que faça sentido
+                            para o momento e simplesmente escute.
+                        </p>
+
+                        <button
+                            class="small-btn activity-btn"
+                            data-activity="Parar para ouvir uma música.">
+
+                            Escolher
+
+                        </button>
+
+                    </article>
+
+
+                    <article class="activity reveal">
+
+                        <span class="activity-time">
+                            10 MIN
+                        </span>
+
+                        <h3>
+                            🚿 Tome um banho tranquilo
+                        </h3>
+
+                        <p>
+                            Não precisa fazer nada além disso.
+                            Apenas permita que seja uma pausa.
+                        </p>
+
+                        <button
+                            class="small-btn activity-btn"
+                            data-activity="Tomar um banho como uma pequena pausa.">
+
+                            Escolher
+
+                        </button>
+
+                    </article>
+
+
+                    <article class="activity reveal">
+
+                        <span class="activity-time">
+                            20 MIN
+                        </span>
+
+                        <h3>
+                            📝 Escreva sem filtro
+                        </h3>
+
+                        <p>
+                            Escreva tudo que vier à cabeça.
+                            Não precisa mostrar para ninguém.
+                        </p>
+
+                        <button
+                            class="small-btn activity-btn"
+                            data-activity="Escrever livremente por alguns minutos.">
+
+                            Escolher
+
+                        </button>
+
+                    </article>
+
+
+                    <article class="activity reveal">
+
+                        <span class="activity-time">
+                            20 MIN
+                        </span>
+
+                        <h3>
+                            🫂 Procure alguém
+                        </h3>
+
+                        <p>
+                            Mande uma mensagem simples para alguém
+                            em quem confia.
+                        </p>
+
+                        <button
+                            class="small-btn activity-btn"
+                            data-activity="Entrar em contato com alguém de confiança.">
+
+                            Escolher
+
+                        </button>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
              FRASE
         ====================================================== -->
 
@@ -1433,7 +2828,7 @@
                     </h2>
 
                     <p>
-                        Pedir ajuda também é uma forma de cuidar de si.
+                        Um dia difícil não define a sua vida inteira.
                     </p>
 
                 </div>
@@ -1479,9 +2874,10 @@
                         </h3>
 
                         <p>
-                            Pode envolver preocupação, medo, tensão,
-                            inquietação e sintomas físicos. Em alguns
-                            momentos de estresse, sentir ansiedade
+                            Pode aparecer como preocupação,
+                            inquietação, tensão ou sensação de
+                            que os pensamentos não conseguem parar.
+                            Em situações de estresse, sentir ansiedade
                             pode ser uma reação comum.
                         </p>
 
@@ -1563,6 +2959,51 @@
 
                     </article>
 
+
+                    <article class="topic reveal">
+
+                        <h3>
+                            🌫️ Confusão emocional
+                        </h3>
+
+                        <p>
+                            Às vezes sabemos que algo não está bem,
+                            mas não conseguimos encontrar uma palavra
+                            para explicar. Não saber também é uma resposta.
+                        </p>
+
+                    </article>
+
+
+                    <article class="topic reveal">
+
+                        <h3>
+                            🧩 Estresse
+                        </h3>
+
+                        <p>
+                            Situações exigentes podem afetar pensamentos,
+                            emoções, sono, energia e concentração.
+                            Pausas e apoio podem fazer diferença.
+                        </p>
+
+                    </article>
+
+
+                    <article class="topic reveal">
+
+                        <h3>
+                            🫂 Precisar de acolhimento
+                        </h3>
+
+                        <p>
+                            Nem sempre precisamos de uma solução.
+                            Às vezes precisamos apenas de espaço para
+                            existir, falar e ser escutados.
+                        </p>
+
+                    </article>
+
                 </div>
 
             </div>
@@ -1589,8 +3030,8 @@
                     </h2>
 
                     <p>
-                        Procurar ajuda é um passo de cuidado, não um
-                        sinal de fraqueza.
+                        Procurar ajuda é um passo de cuidado,
+                        não um sinal de fraqueza.
                     </p>
 
                 </div>
@@ -1632,27 +3073,54 @@
                     </div>
 
 
-                    <div class="help-card emergency reveal">
+                    <div
+                        class="help-card emergency help-now reveal">
 
                         <h3>
-                            🆘 Preciso conversar agora
+                            🆘 Preciso de ajuda agora
                         </h3>
 
                         <p>
-                            O CVV oferece apoio emocional gratuito,
-                            com atendimento pelo telefone 188.
+                            Você não precisa enfrentar um momento difícil
+                            sozinho.
                         </p>
+
+                        <p>
+                            Se você sente que precisa conversar com alguém
+                            agora, o CVV oferece apoio emocional gratuito,
+                            sigiloso e anônimo pelo telefone 188,
+                            24 horas por dia.
+                        </p>
+
 
                         <a
                             href="tel:188"
-                            class="phone">
+                            class="phone"
+                            aria-label="Ligar para o CVV no número 188">
+
                             📞 188
+
                         </a>
 
-                        <p style="margin-top:15px; font-size:.85rem;">
-                            Atendimento 24 horas, todos os dias,
+
+                        <p class="help-note">
+
+                            Atendimento gratuito, 24 horas,
                             em todo o território nacional.
+
                         </p>
+
+
+                        <a
+                            href="https://cvv.org.br/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn btn-secondary"
+                            style="margin-top:10px;">
+
+                            💬 Conhecer o CVV
+
+                        </a>
 
                     </div>
 
@@ -1664,10 +3132,15 @@
                         </h3>
 
                         <p>
-                            Se você acredita que pode machucar a si
-                            mesmo ou outra pessoa, procure imediatamente
-                            um serviço de emergência ou peça para alguém
-                            de confiança ficar com você.
+                            Se houver risco imediato de você se machucar
+                            ou de outra pessoa se machucar, procure também
+                            um serviço de emergência ou vá a um pronto
+                            atendimento.
+                        </p>
+
+                        <p>
+                            Se puder, peça para alguém de confiança
+                            permanecer com você.
                         </p>
 
                         <p>
@@ -1715,6 +3188,20 @@
                     procure ajuda profissional ou um serviço
                     de emergência.
 
+                    <br><br>
+
+                    <strong>
+                        🔒 Sobre seus registros
+                    </strong>
+
+                    <br><br>
+
+                    As reflexões e registros deste Acolhe são
+                    armazenados localmente no navegador por meio
+                    do armazenamento do próprio dispositivo.
+                    Eles não são enviados para uma conta ou servidor
+                    do Acolhe nesta versão.
+
                 </div>
 
             </div>
@@ -1722,6 +3209,33 @@
         </section>
 
     </main>
+
+
+    <!-- =========================================================
+         BOTÃO FLUTUANTE
+    ========================================================== -->
+
+    <button
+        class="floating-help"
+        id="floatingHelp"
+        aria-label="Ir para ajuda agora">
+
+        🆘 Preciso de ajuda agora
+
+    </button>
+
+
+    <!-- =========================================================
+         TOAST
+    ========================================================== -->
+
+    <div
+        class="toast"
+        id="toast"
+        role="status"
+        aria-live="polite">
+
+    </div>
 
 
     <!-- =========================================================
@@ -1746,6 +3260,7 @@
 
                 </div>
 
+
                 <div>
                     © 2026 Acolhe
                 </div>
@@ -1764,12 +3279,125 @@
     <script>
 
         /* =========================================================
+           UTILIDADES
+        ========================================================== */
+
+        function getJSON(key, fallback) {
+
+            try {
+
+                const value = localStorage.getItem(key);
+
+                return value
+                    ? JSON.parse(value)
+                    : fallback;
+
+            } catch (error) {
+
+                return fallback;
+
+            }
+
+        }
+
+
+        function setJSON(key, value) {
+
+            try {
+
+                localStorage.setItem(
+                    key,
+                    JSON.stringify(value)
+                );
+
+            } catch (error) {
+
+                console.warn(
+                    "Não foi possível salvar os dados.",
+                    error
+                );
+
+            }
+
+        }
+
+
+        function showToast(message) {
+
+            const toast =
+                document.getElementById("toast");
+
+            toast.textContent = message;
+
+            toast.classList.add("show");
+
+            clearTimeout(window.toastTimer);
+
+            window.toastTimer = setTimeout(() => {
+
+                toast.classList.remove("show");
+
+            }, 2600);
+
+        }
+
+
+        function formatDate(dateString) {
+
+            const date =
+                new Date(dateString);
+
+            return date.toLocaleDateString(
+                "pt-BR",
+                {
+                    day: "2-digit",
+                    month: "2-digit",
+                    year: "numeric"
+                }
+            );
+
+        }
+
+
+        function formatDateTime(dateString) {
+
+            const date =
+                new Date(dateString);
+
+            return date.toLocaleString(
+                "pt-BR",
+                {
+                    day: "2-digit",
+                    month: "2-digit",
+                    year: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit"
+                }
+            );
+
+        }
+
+
+        function getTodayKey() {
+
+            const now = new Date();
+
+            return now.toISOString().split("T")[0];
+
+        }
+
+
+        /* =========================================================
            MODO ESCURO
         ========================================================== */
 
-        const themeToggle = document.getElementById("themeToggle");
+        const themeToggle =
+            document.getElementById("themeToggle");
 
-        const savedTheme = localStorage.getItem("acolhe-theme");
+
+        const savedTheme =
+            localStorage.getItem("acolhe-theme");
+
 
         if (savedTheme === "dark") {
 
@@ -1779,199 +3407,836 @@
 
         }
 
-        themeToggle.addEventListener("click", () => {
 
-            document.body.classList.toggle("dark");
+        themeToggle.addEventListener(
+            "click",
+            () => {
 
-            const dark = document.body.classList.contains("dark");
+                document.body.classList.toggle("dark");
 
-            localStorage.setItem(
-                "acolhe-theme",
-                dark ? "dark" : "light"
-            );
+                const dark =
+                    document.body.classList.contains("dark");
 
-            themeToggle.textContent = dark ? "☀️" : "🌙";
+                localStorage.setItem(
+                    "acolhe-theme",
+                    dark ? "dark" : "light"
+                );
 
-        });
+                themeToggle.textContent =
+                    dark ? "☀️" : "🌙";
+
+            }
+        );
 
 
         /* =========================================================
-           CHECK-IN EMOCIONAL
+           CHECK-IN
         ========================================================== */
 
         const feelings = {
 
-            ansioso: {
-                title: "Respire. Você não precisa resolver tudo agora.",
-                text: "Quando a cabeça parece estar acelerada, tente diminuir o ritmo por alguns minutos. Você pode começar pelo exercício de respiração abaixo."
+            "nao-bem": {
+
+                title: "Você não precisa fingir que está bem.",
+
+                texts: [
+
+                    "Hoje pode estar difícil. Você não precisa transformar isso em uma solução agora.",
+
+                    "Está tudo bem reconhecer que hoje não está sendo um dia fácil.",
+
+                    "Você pode simplesmente ficar aqui por um momento. Não precisa resolver tudo hoje.",
+
+                    "O que você está sentindo merece espaço, mesmo que você ainda não saiba explicar."
+
+                ]
+
             },
 
-            triste: {
-                title: "Tudo bem reconhecer que hoje está difícil.",
-                text: "Você não precisa fingir que está bem. Se puder, tente conversar com alguém em quem confia."
+
+            "nao-sei": {
+
+                title: "Você não precisa saber explicar.",
+
+                texts: [
+
+                    "Não saber o que está sentindo também é uma resposta.",
+
+                    "Às vezes percebemos que alguma coisa não está bem antes de conseguir colocar isso em palavras.",
+
+                    "Você não precisa encontrar o nome certo para aquilo que está vivendo.",
+
+                    "Podemos começar simplesmente pelo: 'eu não sei, mas não estou bem'."
+
+                ]
+
             },
 
-            sobrecarregado: {
-                title: "Você não precisa carregar tudo ao mesmo tempo.",
-                text: "Escolha apenas uma pequena coisa para fazer agora. O restante pode esperar um pouco."
+
+            "exausto": {
+
+                title: "Hoje, fazer o básico já pode ser suficiente.",
+
+                texts: [
+
+                    "Você não precisa carregar tudo ao mesmo tempo.",
+
+                    "Talvez agora seja um bom momento para diminuir o tamanho do que precisa ser feito.",
+
+                    "Descansar também pode ser uma forma de continuar.",
+
+                    "Escolha apenas uma coisa pequena. O resto pode esperar um pouco."
+
+                ]
+
             },
 
-            sozinho: {
-                title: "Sentir-se sozinho pode ser muito difícil.",
-                text: "Se houver alguém em quem você confia, considere mandar uma mensagem. Você não precisa saber exatamente o que dizer."
+
+            "cabeca": {
+
+                title: "Nem todo pensamento precisa de uma resposta agora.",
+
+                texts: [
+
+                    "Respire devagar. Você não precisa resolver tudo neste instante.",
+
+                    "Vamos cuidar apenas do próximo minuto.",
+
+                    "Você pode pausar antes de continuar.",
+
+                    "Um passo de cada vez já é um caminho."
+
+                ]
+
             },
 
-            cansado: {
-                title: "Seu corpo e sua mente também precisam de pausa.",
-                text: "Se puder, diminua o ritmo por alguns minutos. Pequenos cuidados também contam."
+
+            "sozinho": {
+
+                title: "Você merece ter espaço para ser ouvido.",
+
+                texts: [
+
+                    "Se puder, procure alguém de confiança para estar com você.",
+
+                    "Você não precisa encontrar as palavras perfeitas para começar uma conversa.",
+
+                    "Às vezes basta dizer: 'eu queria conversar um pouco'.",
+
+                    "Mesmo que pareça difícil agora, você merece companhia e apoio."
+
+                ]
+
             },
 
-            confuso: {
-                title: "Você não precisa saber explicar tudo.",
-                text: "Às vezes conseguimos perceber que não estamos bem antes de conseguir colocar isso em palavras."
+
+            "triste": {
+
+                title: "Você pode ter um dia difícil sem se cobrar por isso.",
+
+                texts: [
+
+                    "A tristeza não precisa ser escondida para você continuar.",
+
+                    "Se acolher também é uma forma de seguir.",
+
+                    "Você pode dar espaço para esse momento sem precisar se julgar.",
+
+                    "Hoje pode estar pesado. Você não precisa transformar isso em culpa."
+
+                ]
+
             },
 
-            melhor: {
-                title: "Que bom que hoje está um pouco mais leve. 🌱",
-                text: "Guarde esse momento. Cuidar de si também significa reconhecer os dias que ficam um pouco melhores."
+
+            "angustiado": {
+
+                title: "Vamos diminuir o tamanho do agora.",
+
+                texts: [
+
+                    "Respire devagar. Você só precisa cuidar deste momento.",
+
+                    "Seu momento merece calma, não cobrança.",
+
+                    "Você pode pausar antes de decidir qualquer coisa.",
+
+                    "Não é necessário resolver tudo enquanto você está angustiado."
+
+                ]
+
             },
 
-            outro: {
-                title: "Você pode simplesmente não saber explicar.",
-                text: "Não encontrar as palavras certas não torna o que você sente menos importante."
+
+            "acolhido": {
+
+                title: "Então fique aqui por um momento. 🫂",
+
+                texts: [
+
+                    "Você não precisa fazer nada agora.",
+
+                    "Não precisamos resolver você. Podemos simplesmente ficar aqui.",
+
+                    "Você pode chegar exatamente como está.",
+
+                    "Às vezes ser acolhido é tudo que precisamos neste instante."
+
+                ]
+
+            },
+
+
+            "colocar-fora": {
+
+                title: "Pode colocar para fora.",
+
+                texts: [
+
+                    "Não precisa escrever bonito.",
+
+                    "Não precisa fazer sentido.",
+
+                    "Não precisa organizar antes. Só escreva.",
+
+                    "Tudo bem se as palavras vierem bagunçadas."
+
+                ]
+
+            },
+
+
+            "melhor": {
+
+                title: "Que bom perceber um pouco mais de leveza. 🌱",
+
+                texts: [
+
+                    "Guarde esse momento. Dias leves também merecem ser percebidos.",
+
+                    "Talvez hoje exista um pequeno espaço para respirar melhor.",
+
+                    "Que bom que hoje está um pouco diferente.",
+
+                    "Você não precisa esquecer os dias difíceis para reconhecer os dias melhores."
+
+                ]
+
             }
 
         };
 
 
-        document.querySelectorAll(".feeling-card").forEach(card => {
+        function randomPhrase(array, key) {
 
-            card.addEventListener("click", () => {
+            const lastKey =
+                `acolhe-last-phrase-${key}`;
 
-                document
-                    .querySelectorAll(".feeling-card")
-                    .forEach(item => item.classList.remove("active"));
+            const last =
+                localStorage.getItem(lastKey);
 
-                card.classList.add("active");
+            let available =
+                array.filter(
+                    phrase => phrase !== last
+                );
 
-                const feeling = card.dataset.feeling;
+            if (!available.length) {
 
-                const result = feelings[feeling];
+                available = array;
 
-                document.getElementById("resultTitle").textContent =
-                    result.title;
+            }
 
-                document.getElementById("resultText").textContent =
-                    result.text;
+            const selected =
+                available[
+                    Math.floor(
+                        Math.random() * available.length
+                    )
+                ];
 
-                document
-                    .getElementById("checkinResult")
-                    .classList.add("show");
+            localStorage.setItem(
+                lastKey,
+                selected
+            );
+
+            return selected;
+
+        }
+
+
+        document
+            .querySelectorAll(".feeling-card")
+            .forEach(card => {
+
+                card.addEventListener(
+                    "click",
+                    () => {
+
+                        document
+                            .querySelectorAll(".feeling-card")
+                            .forEach(item =>
+                                item.classList.remove("active")
+                            );
+
+                        card.classList.add("active");
+
+                        const feeling =
+                            card.dataset.feeling;
+
+                        const result =
+                            feelings[feeling];
+
+                        if (!result) return;
+
+                        const phrase =
+                            randomPhrase(
+                                result.texts,
+                                feeling
+                            );
+
+                        document
+                            .getElementById("resultTitle")
+                            .textContent =
+                            result.title;
+
+                        document
+                            .getElementById("resultText")
+                            .textContent =
+                            phrase;
+
+                        document
+                            .getElementById("checkinResult")
+                            .classList.add("show");
+
+                        document
+                            .getElementById("needContainer")
+                            .style.display =
+                            "block";
+
+
+                        saveCheckin(
+                            feeling,
+                            card
+                                .querySelector("strong")
+                                .textContent
+                        );
+
+
+                        updateSpace();
+
+
+                        document
+                            .getElementById("checkinResult")
+                            .scrollIntoView({
+                                behavior: "smooth",
+                                block: "nearest"
+                            });
+
+                    }
+                );
 
             });
 
-        });
+
+        /* =========================================================
+           NECESSIDADE APÓS CHECK-IN
+        ========================================================== */
+
+        document
+            .querySelectorAll(".need-option")
+            .forEach(button => {
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        const action =
+                            button.dataset.action;
+
+                        const destinations = {
+
+                            acolher: "#inicio",
+
+                            respirar: "#ferramentas",
+
+                            escrever: "#ferramentas",
+
+                            organizar: "#ferramentas",
+
+                            pausa: "#ferramentas",
+
+                            ajuda: "#ajuda"
+
+                        };
+
+
+                        const messages = {
+
+                            acolher:
+                                "Você não precisa resolver nada agora. Pode simplesmente ficar aqui.",
+
+                            respirar:
+                                "Vamos cuidar da respiração por alguns minutos.",
+
+                            escrever:
+                                "Não precisa organizar seus pensamentos. Você pode começar escrevendo qualquer coisa.",
+
+                            organizar:
+                                "Comece por uma coisa pequena. O restante pode esperar.",
+
+                            pausa:
+                                "Uma pequena pausa também conta.",
+
+                            ajuda:
+                                "Procurar alguém pode ser um passo importante. Você não precisa fazer isso sozinho."
+
+                        };
+
+
+                        showToast(
+                            messages[action]
+                        );
+
+
+                        const target =
+                            destinations[action];
+
+                        if (target) {
+
+                            setTimeout(() => {
+
+                                document
+                                    .querySelector(target)
+                                    .scrollIntoView({
+                                        behavior: "smooth"
+                                    });
+
+                            }, 400);
+
+                        }
+
+                    }
+                );
+
+            });
 
 
         /* =========================================================
-           DIÁRIO
+           HISTÓRICO DE CHECK-INS
         ========================================================== */
 
-        const journal = document.getElementById("journal");
+        function saveCheckin(
+            feeling,
+            label
+        ) {
 
-        const savedJournal =
-            localStorage.getItem("acolhe-journal");
+            const history =
+                getJSON(
+                    "acolhe-history",
+                    []
+                );
 
-        if (savedJournal) {
 
-            journal.value = savedJournal;
+            history.unshift({
+
+                id: Date.now(),
+
+                feeling,
+
+                label,
+
+                date: new Date().toISOString()
+
+            });
+
+
+            setJSON(
+                "acolhe-history",
+                history.slice(0, 100)
+            );
+
+
+            localStorage.setItem(
+                "acolhe-has-visited",
+                "true"
+            );
 
         }
+
+
+        /* =========================================================
+           REFLEXÕES
+        ========================================================== */
+
+        const journal =
+            document.getElementById("journal");
 
 
         function saveJournal() {
 
-            localStorage.setItem(
-                "acolhe-journal",
-                journal.value
+            const text =
+                journal.value.trim();
+
+
+            if (!text) {
+
+                showToast(
+                    "Escreva alguma coisa antes de guardar. 🌿"
+                );
+
+                journal.focus();
+
+                return;
+
+            }
+
+
+            const reflections =
+                getJSON(
+                    "acolhe-reflections",
+                    []
+                );
+
+
+            reflections.unshift({
+
+                id: Date.now(),
+
+                text,
+
+                date: new Date().toISOString()
+
+            });
+
+
+            setJSON(
+                "acolhe-reflections",
+                reflections
             );
 
-            const button = document.querySelector(
-                ".journal-actions .btn"
+
+            journal.value = "";
+
+
+            renderReflections();
+
+
+            updateSpace();
+
+
+            showToast(
+                "Hoje você colocou isso para fora. 🌱"
             );
 
-            const original = button.textContent;
 
-            button.textContent = "✓ Guardado";
+            document
+                .getElementById("achievementWrite")
+                .classList.add("unlocked");
 
-            setTimeout(() => {
+        }
 
-                button.textContent = original;
 
-            }, 1800);
+        function renderReflections() {
+
+            const container =
+                document.getElementById(
+                    "reflectionsList"
+                );
+
+
+            const reflections =
+                getJSON(
+                    "acolhe-reflections",
+                    []
+                );
+
+
+            container.innerHTML = "";
+
+
+            if (!reflections.length) {
+
+                container.innerHTML = `
+
+                    <div class="empty-state">
+
+                        📝
+
+                        <br>
+
+                        Suas reflexões aparecerão aqui.
+
+                        <br>
+
+                        Você pode escrever sem julgamento.
+
+                    </div>
+
+                `;
+
+                return;
+
+            }
+
+
+            reflections.forEach(
+                reflection => {
+
+                    const article =
+                        document.createElement("article");
+
+
+                    article.className =
+                        "reflection";
+
+
+                    article.innerHTML = `
+
+                        <div class="reflection-meta">
+
+                            <span>
+                                ${formatDateTime(reflection.date)}
+                            </span>
+
+                            <button
+                                class="delete-reflection"
+                                data-id="${reflection.id}">
+
+                                Excluir
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="reflection-text"></div>
+
+                    `;
+
+
+                    article
+                        .querySelector(".reflection-text")
+                        .textContent =
+                        reflection.text;
+
+
+                    article
+                        .querySelector(".delete-reflection")
+                        .addEventListener(
+                            "click",
+                            () => {
+
+                                deleteReflection(
+                                    reflection.id
+                                );
+
+                            }
+                        );
+
+
+                    container.appendChild(article);
+
+                }
+            );
+
+        }
+
+
+        function deleteReflection(id) {
+
+            const confirmed =
+                confirm(
+                    "Deseja excluir esta reflexão?"
+                );
+
+
+            if (!confirmed) return;
+
+
+            let reflections =
+                getJSON(
+                    "acolhe-reflections",
+                    []
+                );
+
+
+            reflections =
+                reflections.filter(
+                    item =>
+                        item.id !== id
+                );
+
+
+            setJSON(
+                "acolhe-reflections",
+                reflections
+            );
+
+
+            renderReflections();
+
+            updateSpace();
+
+            showToast(
+                "Reflexão removida."
+            );
+
+        }
+
+
+        journal.addEventListener(
+            "input",
+            () => {
+
+                localStorage.setItem(
+                    "acolhe-draft",
+                    journal.value
+                );
+
+            }
+        );
+
+
+        const savedDraft =
+            localStorage.getItem(
+                "acolhe-draft"
+            );
+
+
+        if (savedDraft) {
+
+            journal.value =
+                savedDraft;
 
         }
 
 
         /* =========================================================
-           TAREFAS
+           TAREFAS DIÁRIAS
         ========================================================== */
 
         const taskInputs =
-            document.querySelectorAll(".task input");
+            document.querySelectorAll(
+                ".task input"
+            );
 
-        taskInputs.forEach((input, index) => {
 
-            const saved =
-                localStorage.getItem(`acolhe-task-${index}`);
+        function taskKey(index) {
 
-            if (saved === "true") {
+            return `acolhe-task-${getTodayKey()}-${index}`;
 
-                input.checked = true;
+        }
 
-            }
 
-            input.addEventListener("change", () => {
+        taskInputs.forEach(
+            (input, index) => {
 
-                localStorage.setItem(
-                    `acolhe-task-${index}`,
-                    input.checked
+                const saved =
+                    localStorage.getItem(
+                        taskKey(index)
+                    );
+
+
+                if (saved === "true") {
+
+                    input.checked = true;
+
+                }
+
+
+                input.addEventListener(
+                    "change",
+                    () => {
+
+                        localStorage.setItem(
+                            taskKey(index),
+                            input.checked
+                        );
+
+
+                        updateTasks();
+
+                        updateSpace();
+
+                    }
                 );
 
-                updateTasks();
-
-            });
-
-        });
+            }
+        );
 
 
         function updateTasks() {
 
-            const total = taskInputs.length;
+            const total =
+                taskInputs.length;
+
 
             const completed =
                 [...taskInputs]
-                .filter(input => input.checked)
-                .length;
+                    .filter(
+                        input =>
+                            input.checked
+                    )
+                    .length;
+
 
             const percentage =
                 (completed / total) * 100;
 
-            document.getElementById("progress").style.width =
+
+            document
+                .getElementById("progress")
+                .style.width =
                 `${percentage}%`;
 
-            document.getElementById("progressText").textContent =
+
+            document
+                .getElementById("progressText")
+                .textContent =
                 `${completed} de ${total} concluídas`;
 
-            taskInputs.forEach(input => {
 
-                input.closest(".task")
-                    .classList.toggle(
-                        "done",
-                        input.checked
+            taskInputs.forEach(
+                input => {
+
+                    input
+                        .closest(".task")
+                        .classList
+                        .toggle(
+                            "done",
+                            input.checked
+                        );
+
+                }
+            );
+
+
+            const message =
+                document
+                    .getElementById("dailyMessage");
+
+
+            if (completed > 0) {
+
+                message.classList.add("show");
+
+            } else {
+
+                message.classList.remove("show");
+
+            }
+
+
+            if (completed === total) {
+
+                document
+                    .getElementById(
+                        "achievementCare"
+                    )
+                    .classList.add(
+                        "unlocked"
                     );
 
-            });
+            }
 
         }
 
@@ -1987,97 +4252,1017 @@
 
         let breathingRunning = false;
 
+        let breathingPaused = false;
 
-        function startBreathing(minutes) {
+        let breathingEnd = null;
 
-            clearInterval(breathingTimer);
+        let breathingRemaining = 0;
 
-            const duration =
-                minutes * 60 * 1000;
+        let breathingPhaseTimeouts = [];
 
-            const start =
-                Date.now();
 
-            breathingRunning = true;
+        function clearBreathingTimeouts() {
+
+            breathingPhaseTimeouts.forEach(
+                timeout =>
+                    clearTimeout(timeout)
+            );
+
+            breathingPhaseTimeouts = [];
+
+        }
+
+
+        function formatTimer(milliseconds) {
+
+            const totalSeconds =
+                Math.max(
+                    0,
+                    Math.ceil(
+                        milliseconds / 1000
+                    )
+                );
+
+
+            const minutes =
+                Math.floor(
+                    totalSeconds / 60
+                );
+
+
+            const seconds =
+                totalSeconds % 60;
+
+
+            return `${String(minutes).padStart(2,"0")}:${String(seconds).padStart(2,"0")}`;
+
+        }
+
+
+        function updateBreathingTimer() {
+
+            document
+                .getElementById(
+                    "breathingTimer"
+                )
+                .textContent =
+                formatTimer(
+                    breathingRemaining
+                );
+
+        }
+
+
+        function setBreathingPhase(
+            phase
+        ) {
 
             const circle =
-                document.getElementById("breathingCircle");
+                document.getElementById(
+                    "breathingCircle"
+                );
+
 
             const text =
-                document.getElementById("breathingText");
+                document.getElementById(
+                    "breathingText"
+                );
+
 
             const status =
-                document.getElementById("breathingStatus");
+                document.getElementById(
+                    "breathingStatus"
+                );
 
 
-            function cycle() {
+            circle.classList.remove(
+                "inhale",
+                "exhale",
+                "hold"
+            );
 
-                if (!breathingRunning) return;
 
-                circle.classList.remove("exhale");
+            if (phase === "inhale") {
 
-                circle.classList.add("inhale");
+                void circle.offsetWidth;
 
-                text.textContent = "Inspire";
+                circle.classList.add(
+                    "inhale"
+                );
+
+                text.textContent =
+                    "Inspire";
 
                 status.textContent =
                     "Puxe o ar devagar...";
 
-                setTimeout(() => {
-
-                    if (!breathingRunning) return;
-
-                    circle.classList.remove("inhale");
-
-                    text.textContent = "Segure";
-
-                    status.textContent =
-                        "Segure por alguns segundos...";
-
-                }, 4000);
+            }
 
 
-                setTimeout(() => {
+            if (phase === "hold") {
 
-                    if (!breathingRunning) return;
+                circle.classList.add(
+                    "hold"
+                );
 
-                    circle.classList.add("exhale");
+                text.textContent =
+                    "Segure";
 
-                    text.textContent = "Expire";
-
-                    status.textContent =
-                        "Solte o ar lentamente...";
-
-                }, 5500);
+                status.textContent =
+                    "Segure por alguns segundos...";
 
             }
 
 
-            cycle();
+            if (phase === "exhale") {
 
-            breathingTimer =
-                setInterval(cycle, 11500);
+                void circle.offsetWidth;
 
-
-            setTimeout(() => {
-
-                breathingRunning = false;
-
-                clearInterval(breathingTimer);
-
-                circle.classList.remove(
-                    "inhale",
+                circle.classList.add(
                     "exhale"
                 );
 
-                text.textContent = "Concluído";
+                text.textContent =
+                    "Expire";
 
                 status.textContent =
-                    "Você reservou alguns minutos para você. 🌿";
+                    "Solte o ar lentamente...";
 
-            }, duration);
+            }
 
         }
+
+
+        function runBreathingCycle() {
+
+            if (
+                !breathingRunning ||
+                breathingPaused
+            ) return;
+
+
+            setBreathingPhase(
+                "inhale"
+            );
+
+
+            breathingPhaseTimeouts.push(
+                setTimeout(
+                    () => {
+
+                        if (
+                            breathingRunning &&
+                            !breathingPaused
+                        ) {
+
+                            setBreathingPhase(
+                                "hold"
+                            );
+
+                        }
+
+                    },
+                    4000
+                )
+            );
+
+
+            breathingPhaseTimeouts.push(
+                setTimeout(
+                    () => {
+
+                        if (
+                            breathingRunning &&
+                            !breathingPaused
+                        ) {
+
+                            setBreathingPhase(
+                                "exhale"
+                            );
+
+                        }
+
+                    },
+                    5500
+                )
+            );
+
+
+            breathingPhaseTimeouts.push(
+                setTimeout(
+                    () => {
+
+                        if (
+                            breathingRunning &&
+                            !breathingPaused
+                        ) {
+
+                            runBreathingCycle();
+
+                        }
+
+                    },
+                    11500
+                )
+            );
+
+        }
+
+
+        function startBreathing(minutes) {
+
+            resetBreathing(false);
+
+
+            breathingRunning =
+                true;
+
+            breathingPaused =
+                false;
+
+
+            breathingRemaining =
+                minutes * 60 * 1000;
+
+
+            breathingEnd =
+                Date.now() +
+                breathingRemaining;
+
+
+            document
+                .getElementById(
+                    "breathingStatus"
+                )
+                .textContent =
+                "Começando...";
+
+
+            updateBreathingTimer();
+
+
+            breathingTimer =
+                setInterval(
+                    () => {
+
+                        if (
+                            !breathingRunning ||
+                            breathingPaused
+                        ) return;
+
+
+                        breathingRemaining =
+                            Math.max(
+                                0,
+                                breathingEnd -
+                                Date.now()
+                            );
+
+
+                        updateBreathingTimer();
+
+
+                        if (
+                            breathingRemaining <= 0
+                        ) {
+
+                            completeBreathing();
+
+                        }
+
+                    },
+                    250
+                );
+
+
+            runBreathingCycle();
+
+        }
+
+
+        function pauseBreathing() {
+
+            if (!breathingRunning) {
+
+                showToast(
+                    "Escolha uma duração para começar."
+                );
+
+                return;
+
+            }
+
+
+            if (!breathingPaused) {
+
+                breathingPaused =
+                    true;
+
+                clearBreathingTimeouts();
+
+
+                breathingRemaining =
+                    Math.max(
+                        0,
+                        breathingEnd -
+                        Date.now()
+                    );
+
+
+                document
+                    .getElementById(
+                        "breathingStatus"
+                    )
+                    .textContent =
+                    "Pausado. Você pode continuar quando quiser.";
+
+
+                document
+                    .getElementById(
+                        "breathingText"
+                    )
+                    .textContent =
+                    "Pausa";
+
+
+                return;
+
+            }
+
+
+            breathingPaused =
+                false;
+
+
+            breathingEnd =
+                Date.now() +
+                breathingRemaining;
+
+
+            runBreathingCycle();
+
+        }
+
+
+        function completeBreathing() {
+
+            breathingRunning =
+                false;
+
+            breathingPaused =
+                false;
+
+
+            clearInterval(
+                breathingTimer
+            );
+
+
+            clearBreathingTimeouts();
+
+
+            breathingRemaining =
+                0;
+
+
+            updateBreathingTimer();
+
+
+            const circle =
+                document.getElementById(
+                    "breathingCircle"
+                );
+
+
+            circle.classList.remove(
+                "inhale",
+                "exhale",
+                "hold"
+            );
+
+
+            document
+                .getElementById(
+                    "breathingText"
+                )
+                .textContent =
+                "Concluído";
+
+
+            document
+                .getElementById(
+                    "breathingStatus"
+                )
+                .textContent =
+                "Você reservou alguns minutos para você. 🌿";
+
+
+            const sessions =
+                Number(
+                    localStorage.getItem(
+                        "acolhe-breathing-sessions"
+                    ) || 0
+                );
+
+
+            localStorage.setItem(
+                "acolhe-breathing-sessions",
+                sessions + 1
+            );
+
+
+            document
+                .getElementById(
+                    "achievementBreathe"
+                )
+                .classList.add(
+                    "unlocked"
+                );
+
+
+            updateSpace();
+
+
+            showToast(
+                "Você reservou um momento para respirar. 🌿"
+            );
+
+        }
+
+
+        function resetBreathing(
+            showMessage = true
+        ) {
+
+            breathingRunning =
+                false;
+
+            breathingPaused =
+                false;
+
+
+            clearInterval(
+                breathingTimer
+            );
+
+
+            clearBreathingTimeouts();
+
+
+            breathingRemaining =
+                0;
+
+
+            const circle =
+                document.getElementById(
+                    "breathingCircle"
+                );
+
+
+            circle.classList.remove(
+                "inhale",
+                "exhale",
+                "hold"
+            );
+
+
+            document
+                .getElementById(
+                    "breathingText"
+                )
+                .textContent =
+                "Pronto?";
+
+
+            document
+                .getElementById(
+                    "breathingStatus"
+                )
+                .textContent =
+                "Escolha uma duração.";
+
+
+            updateBreathingTimer();
+
+
+            if (showMessage) {
+
+                showToast(
+                    "Respiração reiniciada."
+                );
+
+            }
+
+        }
+
+
+        /* =========================================================
+           ACOLHE AGORA
+        ========================================================== */
+
+        let agoraRunning =
+            false;
+
+
+        const agoraMessages = [
+
+            "Pare por alguns segundos. Você não precisa fazer mais nada agora.",
+
+            "Respire devagar. Não tente mudar tudo de uma vez.",
+
+            "Perceba como você está sem precisar julgar o que encontrou.",
+
+            "Agora escolha apenas uma pequena coisa que poderia ajudar você.",
+
+            "Você chegou até aqui. Isso já é alguma coisa.",
+
+            "Não precisamos resolver o futuro. Apenas cuidar deste momento."
+
+        ];
+
+
+        document
+            .getElementById(
+                "startAgora"
+            )
+            .addEventListener(
+                "click",
+                () => {
+
+                    if (agoraRunning) return;
+
+
+                    agoraRunning =
+                        true;
+
+
+                    const button =
+                        document.getElementById(
+                            "startAgora"
+                        );
+
+
+                    const message =
+                        document.getElementById(
+                            "agoraMessage"
+                        );
+
+
+                    button.disabled =
+                        true;
+
+
+                    button.textContent =
+                        "🌿 Acolhe Agora em andamento...";
+
+
+                    let index =
+                        0;
+
+
+                    message.textContent =
+                        agoraMessages[0];
+
+
+                    const interval =
+                        setInterval(
+                            () => {
+
+                                index++;
+
+
+                                if (
+                                    index >=
+                                    agoraMessages.length
+                                ) {
+
+                                    clearInterval(
+                                        interval
+                                    );
+
+
+                                    agoraRunning =
+                                        false;
+
+
+                                    button.disabled =
+                                        false;
+
+
+                                    button.textContent =
+                                        "🌿 Fazer novamente";
+
+
+                                    message.textContent =
+                                        "Você terminou estes dois minutos. Não precisa ter resolvido nada. Você apenas ficou aqui com você.";
+
+                                    return;
+
+                                }
+
+
+                                message.textContent =
+                                    agoraMessages[index];
+
+                            },
+                            20000
+                        );
+
+                }
+            );
+
+
+        /* =========================================================
+           ATIVIDADES
+        ========================================================== */
+
+        document
+            .querySelectorAll(
+                ".activity-btn"
+            )
+            .forEach(
+                button => {
+
+                    button.addEventListener(
+                        "click",
+                        () => {
+
+                            const activity =
+                                button.dataset.activity;
+
+
+                            const cares =
+                                Number(
+                                    localStorage.getItem(
+                                        "acolhe-care-actions"
+                                    ) || 0
+                                );
+
+
+                            localStorage.setItem(
+                                "acolhe-care-actions",
+                                cares + 1
+                            );
+
+
+                            button.textContent =
+                                "✓ Escolhida";
+
+
+                            button.disabled =
+                                true;
+
+
+                            showToast(
+                                `${activity} 🌱`
+                            );
+
+
+                            document
+                                .getElementById(
+                                    "achievementCare"
+                                )
+                                .classList.add(
+                                    "unlocked"
+                                );
+
+
+                            updateSpace();
+
+                        }
+                    );
+
+                }
+            );
+
+
+        /* =========================================================
+           MEU ESPAÇO
+        ========================================================== */
+
+        function updateSpace() {
+
+            const reflections =
+                getJSON(
+                    "acolhe-reflections",
+                    []
+                );
+
+
+            const history =
+                getJSON(
+                    "acolhe-history",
+                    []
+                );
+
+
+            const breathing =
+                Number(
+                    localStorage.getItem(
+                        "acolhe-breathing-sessions"
+                    ) || 0
+                );
+
+
+            const care =
+                Number(
+                    localStorage.getItem(
+                        "acolhe-care-actions"
+                    ) || 0
+                );
+
+
+            document
+                .getElementById(
+                    "statReflections"
+                )
+                .textContent =
+                reflections.length;
+
+
+            document
+                .getElementById(
+                    "statBreathing"
+                )
+                .textContent =
+                breathing;
+
+
+            document
+                .getElementById(
+                    "statCheckins"
+                )
+                .textContent =
+                history.length;
+
+
+            document
+                .getElementById(
+                    "statCare"
+                )
+                .textContent =
+                care;
+
+
+            renderHistory();
+
+            updateAchievements();
+
+        }
+
+
+        function renderHistory() {
+
+            const container =
+                document.getElementById(
+                    "historyList"
+                );
+
+
+            const history =
+                getJSON(
+                    "acolhe-history",
+                    []
+                );
+
+
+            container.innerHTML = "";
+
+
+            if (!history.length) {
+
+                container.innerHTML = `
+
+                    <div class="empty-state">
+
+                        🌿
+
+                        <br>
+
+                        Seu caminho vai aparecer aqui.
+
+                        <br>
+
+                        Comece contando como você está.
+
+                    </div>
+
+                `;
+
+                return;
+
+            }
+
+
+            history
+                .slice(0, 15)
+                .forEach(
+                    item => {
+
+                        const row =
+                            document.createElement(
+                                "div"
+                            );
+
+
+                        row.className =
+                            "history-item";
+
+
+                        row.innerHTML = `
+
+                            <span>
+                                ${item.label}
+                            </span>
+
+                            <span class="history-date">
+                                ${formatDateTime(item.date)}
+                            </span>
+
+                        `;
+
+
+                        container.appendChild(row);
+
+                    }
+                );
+
+        }
+
+
+        /* =========================================================
+           CONQUISTAS
+        ========================================================== */
+
+        function updateAchievements() {
+
+            const reflections =
+                getJSON(
+                    "acolhe-reflections",
+                    []
+                );
+
+
+            const history =
+                getJSON(
+                    "acolhe-history",
+                    []
+                );
+
+
+            const breathing =
+                Number(
+                    localStorage.getItem(
+                        "acolhe-breathing-sessions"
+                    ) || 0
+                );
+
+
+            const care =
+                Number(
+                    localStorage.getItem(
+                        "acolhe-care-actions"
+                    ) || 0
+                );
+
+
+            if (
+                reflections.length ||
+                history.length
+            ) {
+
+                document
+                    .getElementById(
+                        "achievementFirst"
+                    )
+                    .classList.add(
+                        "unlocked"
+                    );
+
+            }
+
+
+            if (
+                reflections.length
+            ) {
+
+                document
+                    .getElementById(
+                        "achievementWrite"
+                    )
+                    .classList.add(
+                        "unlocked"
+                    );
+
+            }
+
+
+            if (
+                breathing > 0
+            ) {
+
+                document
+                    .getElementById(
+                        "achievementBreathe"
+                    )
+                    .classList.add(
+                        "unlocked"
+                    );
+
+            }
+
+
+            if (
+                care > 0
+            ) {
+
+                document
+                    .getElementById(
+                        "achievementCare"
+                    )
+                    .classList.add(
+                        "unlocked"
+                    );
+
+            }
+
+
+            const uniqueDays =
+                new Set(
+                    history.map(
+                        item =>
+                            item.date
+                                .split("T")[0]
+                    )
+                );
+
+
+            if (
+                uniqueDays.size >= 7
+            ) {
+
+                document
+                    .getElementById(
+                        "achievementSeven"
+                    )
+                    .classList.add(
+                        "unlocked"
+                    );
+
+            }
+
+
+            const visitedBefore =
+                localStorage.getItem(
+                    "acolhe-has-visited-before"
+                );
+
+
+            if (
+                visitedBefore === "true"
+            ) {
+
+                document
+                    .getElementById(
+                        "achievementReturn"
+                    )
+                    .classList.add(
+                        "unlocked"
+                    );
+
+            }
+
+
+            localStorage.setItem(
+                "acolhe-has-visited-before",
+                "true"
+            );
+
+        }
+
+
+        /* =========================================================
+           BOTÃO FLUTUANTE DE AJUDA
+        ========================================================== */
+
+        document
+            .getElementById(
+                "floatingHelp"
+            )
+            .addEventListener(
+                "click",
+                () => {
+
+                    document
+                        .getElementById(
+                            "ajuda"
+                        )
+                        .scrollIntoView({
+                            behavior: "smooth"
+                        });
+
+                }
+            );
 
 
         /* =========================================================
@@ -2085,54 +5270,82 @@
         ========================================================== */
 
         const revealElements =
-            document.querySelectorAll(".reveal");
-
-
-        const observer =
-            new IntersectionObserver(
-
-                entries => {
-
-                    entries.forEach(entry => {
-
-                        if (entry.isIntersecting) {
-
-                            entry.target.classList.add(
-                                "visible"
-                            );
-
-                        }
-
-                    });
-
-                },
-
-                {
-                    threshold: .12
-                }
-
+            document.querySelectorAll(
+                ".reveal"
             );
 
 
-        revealElements.forEach(element => {
+        if (
+            "IntersectionObserver"
+            in window
+        ) {
 
-            observer.observe(element);
+            const observer =
+                new IntersectionObserver(
 
-        });
+                    entries => {
+
+                        entries.forEach(
+                            entry => {
+
+                                if (
+                                    entry.isIntersecting
+                                ) {
+
+                                    entry.target
+                                        .classList
+                                        .add(
+                                            "visible"
+                                        );
+
+                                }
+
+                            }
+                        );
+
+                    },
+
+                    {
+                        threshold: .12
+                    }
+
+                );
+
+
+            revealElements.forEach(
+                element => {
+
+                    observer.observe(
+                        element
+                    );
+
+                }
+            );
+
+        } else {
+
+            revealElements.forEach(
+                element => {
+
+                    element.classList.add(
+                        "visible"
+                    );
+
+                }
+            );
+
+        }
 
 
         /* =========================================================
-           SALVAR DIÁRIO AUTOMATICAMENTE
+           INICIALIZAÇÃO
         ========================================================== */
 
-        journal.addEventListener("input", () => {
+        renderReflections();
 
-            localStorage.setItem(
-                "acolhe-journal",
-                journal.value
-            );
+        updateSpace();
 
-        });
+        updateTasks();
 
     </script>
 
