@@ -2,50 +2,35 @@
 <html lang="pt-BR">
 
 <head>
-
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="description"
-        content="Acolhe — um espaço de informação, acolhimento e apoio emocional."
-    >
+    <meta name="theme-color" content="#7667d9">
 
-    <meta
-        name="theme-color"
-        content="#6d5dfc"
-    >
+    <meta name="description"
+        content="Acolhe — um espaço digital de informação, autocuidado e apoio emocional.">
 
-    <title>Acolhe | Você não precisa passar por tudo sozinho.</title>
+    <meta property="og:title" content="Acolhe — Você não precisa passar por tudo sozinho.">
+    <meta property="og:description"
+        content="Um espaço para respirar, se ouvir, encontrar informação e buscar apoio.">
+    <meta property="og:type" content="website">
 
+    <title>Acolhe — Um espaço para você</title>
 
-    <!-- =====================================================
-         FONTES
-    ====================================================== -->
-
+    <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
-
+        rel="stylesheet">
 
     <style>
 
-        /* =====================================================
+        /* =========================================================
            RESET
-        ====================================================== */
+        ========================================================= */
 
         * {
             margin: 0;
@@ -53,2475 +38,953 @@
             box-sizing: border-box;
         }
 
-
         html {
             scroll-behavior: smooth;
         }
 
-
         body {
-
             font-family: "DM Sans", sans-serif;
-
-            color: #303044;
-
-            background:
-                #f8f7fc;
-
-            overflow-x: hidden;
-
+            background: #f8f7fc;
+            color: #27243a;
+            line-height: 1.6;
+            transition: background .3s ease, color .3s ease;
         }
 
+        body.dark {
+            background: #151321;
+            color: #eeeafc;
+        }
+
+        button,
+        input,
+        textarea {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
 
         a {
             text-decoration: none;
             color: inherit;
         }
 
-
-        button {
-            font-family: inherit;
-        }
-
-
-        /* =====================================================
-           VARIABLES
-        ====================================================== */
+        /* =========================================================
+           VARIÁVEIS
+        ========================================================= */
 
         :root {
-
-            --purple:
-                #6d5dfc;
-
-            --purple-dark:
-                #5547d9;
-
-            --purple-light:
-                #eeeaff;
-
-            --lavender:
-                #f3f0ff;
-
-            --blue:
-                #dfeeff;
-
-            --text:
-                #303044;
-
-            --muted:
-                #77768b;
-
-            --white:
-                #ffffff;
-
-            --border:
-                rgba(73, 66, 120, 0.10);
-
-            --shadow:
-                0 20px 60px
-                rgba(57, 48, 107, 0.08);
-
+            --primary: #7667d9;
+            --primary-dark: #5e50bd;
+            --lavender: #eeeaff;
+            --soft-blue: #e9f2ff;
+            --soft-green: #e8f7f0;
+            --soft-pink: #fff0f4;
+            --text: #27243a;
+            --muted: #77738b;
+            --white: #ffffff;
+            --border: #e7e3f0;
+            --shadow: 0 15px 45px rgba(70, 58, 120, .08);
         }
 
-
-        /* =====================================================
-           NAVBAR
-        ====================================================== */
-
-        nav {
-
-            position: fixed;
-
-            top: 0;
-            left: 0;
-
-            width: 100%;
-
-            padding:
-                18px 6%;
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            z-index: 1000;
-
-            transition:
-                0.3s ease;
-
-        }
-
-
-        nav.scrolled {
-
-            background:
-                rgba(248,247,252,0.88);
-
-            backdrop-filter:
-                blur(18px);
-
-            box-shadow:
-                0 5px 30px
-                rgba(40,35,80,0.06);
-
-        }
-
-
-        .logo {
-
-            font-family:
-                "Manrope",
-                sans-serif;
-
-            font-size: 21px;
-
-            font-weight: 800;
-
-            letter-spacing:
-                -0.5px;
-
-            color:
-                var(--text);
-
-        }
-
-
-        .logo span {
-
-            color:
-                var(--purple);
-
-        }
-
-
-        nav ul {
-
-            display: flex;
-
-            gap: 30px;
-
-            list-style: none;
-
-        }
-
-
-        nav ul a {
-
-            font-size: 13px;
-
-            color:
-                var(--muted);
-
-            transition:
-                0.25s;
-
-        }
-
-
-        nav ul a:hover {
-
-            color:
-                var(--purple);
-
-        }
-
-
-        /* =====================================================
-           HERO
-        ====================================================== */
-
-        .hero {
-
-            min-height:
-                100vh;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            position:
-                relative;
-
-            overflow:
-                hidden;
-
-            padding:
-                130px 6% 90px;
-
-        }
-
-
-        .hero::before {
-
-            content: "";
-
-            position:
-                absolute;
-
-            width:
-                650px;
-
-            height:
-                650px;
-
-            border-radius:
-                50%;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(109,93,252,0.12),
-                    transparent 68%
-                );
-
-            top:
-                -250px;
-
-            right:
-                -180px;
-
-            pointer-events:
-                none;
-
-        }
-
-
-        .hero::after {
-
-            content: "";
-
-            position:
-                absolute;
-
-            width:
-                450px;
-
-            height:
-                450px;
-
-            border-radius:
-                50%;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(180,205,255,0.22),
-                    transparent 68%
-                );
-
-            bottom:
-                -220px;
-
-            left:
-                -150px;
-
-            pointer-events:
-                none;
-
-        }
-
-
-        .hero-container {
-
-            max-width:
-                1180px;
-
-            width:
-                100%;
-
-            margin:
-                auto;
-
-            display:
-                grid;
-
-            grid-template-columns:
-                1.1fr 0.9fr;
-
-            gap:
-                70px;
-
-            align-items:
-                center;
-
-            position:
-                relative;
-
-            z-index:
-                2;
-
-        }
-
-
-        .hero-content {
-
-            max-width:
-                650px;
-
-        }
-
-
-        .eyebrow {
-
-            display:
-                inline-flex;
-
-            align-items:
-                center;
-
-            gap:
-                9px;
-
-            padding:
-                8px 13px;
-
-            background:
-                rgba(109,93,252,0.08);
-
-            border:
-                1px solid
-                rgba(109,93,252,0.10);
-
-            border-radius:
-                30px;
-
-            color:
-                var(--purple-dark);
-
-            font-size:
-                12px;
-
-            font-weight:
-                600;
-
-            margin-bottom:
-                25px;
-
-        }
-
-
-        .eyebrow-dot {
-
-            width:
-                7px;
-
-            height:
-                7px;
-
-            border-radius:
-                50%;
-
-            background:
-                #7bdcb5;
-
-            box-shadow:
-                0 0 0 5px
-                rgba(123,220,181,0.12);
-
-        }
-
-
-        .hero h1 {
-
-            font-family:
-                "Manrope",
-                sans-serif;
-
-            font-size:
-                clamp(43px, 6vw, 76px);
-
-            line-height:
-                1.03;
-
-            letter-spacing:
-                -2.8px;
-
-            color:
-                var(--text);
-
-            margin-bottom:
-                25px;
-
-        }
-
-
-        .hero h1 span {
-
-            color:
-                var(--purple);
-
-        }
-
-
-        .hero-description {
-
-            max-width:
-                570px;
-
-            font-size:
-                17px;
-
-            line-height:
-                1.8;
-
-            color:
-                var(--muted);
-
-            margin-bottom:
-                32px;
-
-        }
-
-
-        .hero-buttons {
-
-            display:
-                flex;
-
-            gap:
-                12px;
-
-            flex-wrap:
-                wrap;
-
-        }
-
-
-        .btn {
-
-            display:
-                inline-flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            gap:
-                8px;
-
-            padding:
-                14px 20px;
-
-            border-radius:
-                12px;
-
-            font-size:
-                13px;
-
-            font-weight:
-                600;
-
-            transition:
-                0.25s ease;
-
-        }
-
-
-        .btn-primary {
-
-            background:
-                var(--purple);
-
-            color:
-                white;
-
-            box-shadow:
-                0 10px 25px
-                rgba(109,93,252,0.20);
-
-        }
-
-
-        .btn-primary:hover {
-
-            background:
-                var(--purple-dark);
-
-            transform:
-                translateY(-2px);
-
-        }
-
-
-        .btn-soft {
-
-            background:
-                white;
-
-            border:
-                1px solid
-                var(--border);
-
-            color:
-                var(--text);
-
-        }
-
-
-        .btn-soft:hover {
-
-            border-color:
-                rgba(109,93,252,0.25);
-
-            transform:
-                translateY(-2px);
-
-        }
-
-
-        /* =====================================================
-           HERO CARD
-        ====================================================== */
-
-        .hero-visual {
-
-            display:
-                flex;
-
-            justify-content:
-                center;
-
-            position:
-                relative;
-
-        }
-
-
-        .calm-card {
-
-            width:
-                min(390px, 100%);
-
-            padding:
-                38px;
-
-            background:
-                rgba(255,255,255,0.78);
-
-            border:
-                1px solid
-                rgba(255,255,255,0.9);
-
-            border-radius:
-                30px;
-
-            box-shadow:
-                0 30px 80px
-                rgba(72,63,130,0.12);
-
-            backdrop-filter:
-                blur(20px);
-
-            position:
-                relative;
-
-        }
-
-
-        .calm-circle {
-
-            width:
-                125px;
-
-            height:
-                125px;
-
-            border-radius:
-                50%;
-
-            margin:
-                0 auto 28px;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #e8e4ff,
-                    #f4f2ff
-                );
-
-            box-shadow:
-                inset 0 0 0 1px
-                rgba(109,93,252,0.05);
-
-            font-size:
-                47px;
-
-        }
-
-
-        .calm-card h3 {
-
-            text-align:
-                center;
-
-            font-family:
-                "Manrope",
-                sans-serif;
-
-            font-size:
-                22px;
-
-            margin-bottom:
-                10px;
-
-        }
-
-
-        .calm-card > p {
-
-            text-align:
-                center;
-
-            color:
-                var(--muted);
-
-            font-size:
-                13px;
-
-            line-height:
-                1.7;
-
-            margin-bottom:
-                25px;
-
-        }
-
-
-        .breathing {
-
-            padding:
-                18px;
-
-            border-radius:
-                18px;
-
-            background:
-                var(--lavender);
-
-            text-align:
-                center;
-
-        }
-
-
-        .breathing span {
-
-            display:
-                block;
-
-            color:
-                var(--purple-dark);
-
-            font-size:
-                12px;
-
-            font-weight:
-                600;
-
-            margin-bottom:
-                6px;
-
-        }
-
-
-        .breathing strong {
-
-            font-family:
-                "Manrope",
-                sans-serif;
-
-            font-size:
-                16px;
-
-        }
-
-
-        /* =====================================================
-           SECTION
-        ====================================================== */
-
-        section {
-
-            padding:
-                100px 6%;
-
-            position:
-                relative;
-
-        }
-
+        /* =========================================================
+           CONTAINER
+        ========================================================= */
 
         .container {
-
-            max-width:
-                1180px;
-
-            margin:
-                auto;
-
+            width: min(1120px, 92%);
+            margin: auto;
         }
 
+        /* =========================================================
+           NAVBAR
+        ========================================================= */
 
-        .section-label {
-
-            font-size:
-                11px;
-
-            text-transform:
-                uppercase;
-
-            letter-spacing:
-                3px;
-
-            color:
-                var(--purple);
-
-            font-weight:
-                700;
-
-            margin-bottom:
-                12px;
-
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(18px);
+            background: rgba(248, 247, 252, .82);
+            border-bottom: 1px solid rgba(118, 103, 217, .08);
         }
 
-
-        .section-title {
-
-            font-family:
-                "Manrope",
-                sans-serif;
-
-            font-size:
-                clamp(31px, 4vw, 47px);
-
-            letter-spacing:
-                -1.7px;
-
-            color:
-                var(--text);
-
-            margin-bottom:
-                16px;
-
+        body.dark header {
+            background: rgba(21, 19, 33, .86);
         }
 
-
-        .section-description {
-
-            max-width:
-                650px;
-
-            color:
-                var(--muted);
-
-            line-height:
-                1.8;
-
-            font-size:
-                15px;
-
+        nav {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
         }
 
-
-        /* =====================================================
-           FEELINGS
-        ====================================================== */
-
-        .feelings {
-
-            background:
-                #ffffff;
-
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: "Manrope", sans-serif;
+            font-weight: 800;
+            font-size: 1.25rem;
         }
 
-
-        .feelings-grid {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(4,1fr);
-
-            gap:
-                16px;
-
-            margin-top:
-                45px;
-
+        .logo-icon {
+            width: 38px;
+            height: 38px;
+            display: grid;
+            place-items: center;
+            border-radius: 13px;
+            background: var(--lavender);
         }
 
-
-        .feeling-card {
-
-            padding:
-                25px;
-
-            border:
-                1px solid
-                var(--border);
-
-            border-radius:
-                20px;
-
-            background:
-                #ffffff;
-
-            transition:
-                0.25s ease;
-
-            cursor:
-                pointer;
-
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
         }
 
-
-        .feeling-card:hover {
-
-            transform:
-                translateY(-5px);
-
-            box-shadow:
-                var(--shadow);
-
-            border-color:
-                rgba(109,93,252,0.16);
-
+        .nav-links a {
+            color: var(--muted);
+            font-size: .92rem;
+            font-weight: 600;
+            transition: .2s;
         }
 
-
-        .feeling-icon {
-
-            width:
-                48px;
-
-            height:
-                48px;
-
-            border-radius:
-                15px;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            background:
-                var(--lavender);
-
-            font-size:
-                23px;
-
-            margin-bottom:
-                18px;
-
+        .nav-links a:hover {
+            color: var(--primary);
         }
 
-
-        .feeling-card h3 {
-
-            font-family:
-                "Manrope",
-                sans-serif;
-
-            font-size:
-                16px;
-
-            margin-bottom:
-                8px;
-
+        .theme-toggle {
+            border: 1px solid var(--border);
+            background: var(--white);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            transition: .2s;
         }
 
-
-        .feeling-card p {
-
-            color:
-                var(--muted);
-
-            font-size:
-                12px;
-
-            line-height:
-                1.7;
-
+        .theme-toggle:hover {
+            transform: rotate(10deg);
         }
 
-
-        /* =====================================================
-           WELCOME MESSAGE
-        ====================================================== */
-
-        .message-section {
-
-            background:
-                #f8f7fc;
-
+        body.dark .theme-toggle {
+            background: #211e31;
+            border-color: #343048;
         }
 
+        /* =========================================================
+           HERO
+        ========================================================= */
 
-        .message-box {
-
-            max-width:
-                900px;
-
-            margin:
-                45px auto 0;
-
-            padding:
-                50px;
-
-            border-radius:
-                28px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #f0edff,
-                    #edf5ff
-                );
-
-            text-align:
-                center;
-
-            border:
-                1px solid
-                rgba(109,93,252,0.07);
-
+        .hero {
+            padding: 105px 0 80px;
+            overflow: hidden;
         }
 
-
-        .message-box .quote {
-
-            font-family:
-                "Manrope",
-                sans-serif;
-
-            font-size:
-                clamp(24px, 4vw, 38px);
-
-            line-height:
-                1.35;
-
-            letter-spacing:
-                -1px;
-
-            color:
-                var(--text);
-
-            margin-bottom:
-                20px;
-
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.15fr .85fr;
+            align-items: center;
+            gap: 70px;
         }
 
-
-        .message-box p {
-
-            color:
-                var(--muted);
-
-            max-width:
-                600px;
-
-            margin:
-                auto;
-
-            line-height:
-                1.8;
-
-            font-size:
-                14px;
-
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--lavender);
+            color: var(--primary-dark);
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: .85rem;
+            font-weight: 700;
+            margin-bottom: 22px;
         }
 
-
-        /* =====================================================
-           RESOURCES
-        ====================================================== */
-
-        .resources-grid {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(3,1fr);
-
-            gap:
-                20px;
-
-            margin-top:
-                45px;
-
+        .hero h1 {
+            font-family: "Manrope", sans-serif;
+            font-size: clamp(2.7rem, 6vw, 4.7rem);
+            line-height: 1.05;
+            letter-spacing: -3px;
+            margin-bottom: 24px;
         }
 
-
-        .resource-card {
-
-            padding:
-                30px;
-
-            border-radius:
-                20px;
-
-            background:
-                white;
-
-            border:
-                1px solid
-                var(--border);
-
-            transition:
-                0.25s ease;
-
+        .hero h1 span {
+            color: var(--primary);
         }
 
-
-        .resource-card:hover {
-
-            transform:
-                translateY(-4px);
-
-            box-shadow:
-                var(--shadow);
-
+        .hero p {
+            color: var(--muted);
+            font-size: 1.1rem;
+            max-width: 610px;
+            margin-bottom: 32px;
         }
 
-
-        .resource-icon {
-
-            font-size:
-                27px;
-
-            margin-bottom:
-                18px;
-
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
         }
 
-
-        .resource-card h3 {
-
-            font-family:
-                "Manrope",
-                sans-serif;
-
-            font-size:
-                18px;
-
-            margin-bottom:
-                10px;
-
+        .btn {
+            border: 0;
+            border-radius: 15px;
+            padding: 14px 22px;
+            font-weight: 700;
+            transition: .25s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
-
-        .resource-card p {
-
-            color:
-                var(--muted);
-
-            font-size:
-                13px;
-
-            line-height:
-                1.75;
-
-            margin-bottom:
-                20px;
-
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 10px 25px rgba(118, 103, 217, .22);
         }
 
-
-        .resource-link {
-
-            color:
-                var(--purple-dark);
-
-            font-size:
-                12px;
-
-            font-weight:
-                700;
-
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            background: var(--primary-dark);
         }
 
-
-        /* =====================================================
-           BREATHING
-        ====================================================== */
-
-        .breathing-section {
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #f0efff,
-                    #f5faff
-                );
-
+        .btn-secondary {
+            background: white;
+            color: var(--text);
+            border: 1px solid var(--border);
         }
 
-
-        .breathing-grid {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                0.9fr 1.1fr;
-
-            gap:
-                70px;
-
-            align-items:
-                center;
-
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
         }
 
-
-        .breathing-visual {
-
-            display:
-                flex;
-
-            justify-content:
-                center;
-
+        body.dark .btn-secondary {
+            background: #211e31;
+            color: white;
+            border-color: #343048;
         }
 
+        /* =========================================================
+           HERO CARD
+        ========================================================= */
 
-        .breath-orb {
-
-            width:
-                230px;
-
-            height:
-                230px;
-
-            border-radius:
-                50%;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            background:
-                radial-gradient(
-                    circle,
-                    #ffffff 15%,
-                    #e9e5ff 65%,
-                    #ddd8ff 100%
-                );
-
-            box-shadow:
-                0 20px 70px
-                rgba(109,93,252,0.18);
-
-            animation:
-                breathe 8s ease-in-out infinite;
-
+        .hero-card {
+            background: linear-gradient(145deg, #eeeaff, #edf5ff);
+            border-radius: 35px;
+            padding: 45px;
+            min-height: 390px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
         }
 
-
-        .breath-orb span {
-
-            font-family:
-                "Manrope",
-                sans-serif;
-
-            font-size:
-                17px;
-
-            font-weight:
-                700;
-
-            color:
-                var(--purple-dark);
-
+        body.dark .hero-card {
+            background: linear-gradient(145deg, #292342, #1f2b42);
         }
 
+        .hero-orb {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.55);
+            display: grid;
+            place-items: center;
+            font-size: 5rem;
+            box-shadow: 0 20px 70px rgba(85,70,170,.15);
+            animation: float 5s ease-in-out infinite;
+        }
 
-        @keyframes breathe {
+        @keyframes float {
 
             0%,
             100% {
-
-                transform:
-                    scale(0.82);
-
+                transform: translateY(0);
             }
 
             50% {
+                transform: translateY(-15px);
+            }
+        }
 
-                transform:
-                    scale(1.05);
+        /* =========================================================
+           SEÇÕES
+        ========================================================= */
 
+        section {
+            padding: 90px 0;
+        }
+
+        .section-heading {
+            max-width: 700px;
+            margin-bottom: 45px;
+        }
+
+        .section-heading .mini {
+            color: var(--primary);
+            font-weight: 800;
+            font-size: .85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
+        }
+
+        .section-heading h2 {
+            font-family: "Manrope", sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            letter-spacing: -1.5px;
+            margin-bottom: 12px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+        }
+
+        /* =========================================================
+           CHECK-IN
+        ========================================================= */
+
+        .checkin {
+            background: #fff;
+        }
+
+        body.dark .checkin {
+            background: #1b1928;
+        }
+
+        .feelings-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .feeling-card {
+            border: 1px solid var(--border);
+            background: white;
+            padding: 24px;
+            border-radius: 22px;
+            text-align: left;
+            transition: .25s;
+        }
+
+        body.dark .feeling-card {
+            background: #211e31;
+            border-color: #343048;
+        }
+
+        .feeling-card:hover,
+        .feeling-card.active {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow);
+        }
+
+        .feeling-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .feeling-card strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .feeling-card span {
+            color: var(--muted);
+            font-size: .9rem;
+        }
+
+        .checkin-result {
+            display: none;
+            margin-top: 25px;
+            padding: 28px;
+            border-radius: 22px;
+            background: var(--lavender);
+            animation: fadeUp .4s ease;
+        }
+
+        .checkin-result.show {
+            display: block;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
             }
 
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
+        /* =========================================================
+           FERRAMENTAS
+        ========================================================= */
 
-        .steps {
-
-            display:
-                flex;
-
-            flex-direction:
-                column;
-
-            gap:
-                15px;
-
-            margin-top:
-                28px;
-
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
         }
 
-
-        .step {
-
-            display:
-                flex;
-
-            gap:
-                14px;
-
-            align-items:
-                flex-start;
-
+        .tool-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            padding: 32px;
+            box-shadow: var(--shadow);
         }
 
-
-        .step-number {
-
-            flex-shrink:
-                0;
-
-            width:
-                30px;
-
-            height:
-                30px;
-
-            border-radius:
-                50%;
-
-            background:
-                var(--purple);
-
-            color:
-                white;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            font-size:
-                11px;
-
-            font-weight:
-                700;
-
+        body.dark .tool-card {
+            background: #211e31;
+            border-color: #343048;
         }
 
-
-        .step p {
-
-            color:
-                var(--muted);
-
-            font-size:
-                13px;
-
-            line-height:
-                1.7;
-
+        .tool-icon {
+            width: 55px;
+            height: 55px;
+            display: grid;
+            place-items: center;
+            border-radius: 17px;
+            background: var(--lavender);
+            font-size: 1.5rem;
+            margin-bottom: 18px;
         }
 
-
-        /* =====================================================
-           EMERGENCY
-        ====================================================== */
-
-        .help-section {
-
-            background:
-                #ffffff;
-
+        .tool-card h3 {
+            font-family: "Manrope", sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 8px;
         }
 
-
-        .help-box {
-
-            padding:
-                45px;
-
-            border-radius:
-                25px;
-
-            background:
-                #fff8f7;
-
-            border:
-                1px solid
-                rgba(205,92,82,0.12);
-
-            display:
-                grid;
-
-            grid-template-columns:
-                1fr auto;
-
-            gap:
-                40px;
-
-            align-items:
-                center;
-
+        .tool-card > p {
+            color: var(--muted);
+            margin-bottom: 25px;
         }
 
+        /* =========================================================
+           RESPIRAÇÃO
+        ========================================================= */
 
-        .help-label {
-
-            display:
-                inline-block;
-
-            color:
-                #bd625a;
-
-            background:
-                rgba(189,98,90,0.08);
-
-            padding:
-                7px 11px;
-
-            border-radius:
-                20px;
-
-            font-size:
-                10px;
-
-            font-weight:
-                700;
-
-            letter-spacing:
-                1.5px;
-
-            text-transform:
-                uppercase;
-
-            margin-bottom:
-                15px;
-
+        .breathing-area {
+            text-align: center;
         }
 
-
-        .help-box h2 {
-
-            font-family:
-                "Manrope",
-                sans-serif;
-
-            font-size:
-                30px;
-
-            letter-spacing:
-                -1px;
-
-            margin-bottom:
-                12px;
-
+        .breathing-circle {
+            width: 170px;
+            height: 170px;
+            margin: 20px auto;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #9d91ed, #6e60ca);
+            color: white;
+            display: grid;
+            place-items: center;
+            font-weight: 800;
+            box-shadow: 0 20px 50px rgba(118,103,217,.25);
         }
 
-
-        .help-box p {
-
-            color:
-                var(--muted);
-
-            line-height:
-                1.75;
-
-            max-width:
-                650px;
-
-            font-size:
-                14px;
-
+        .breathing-circle.inhale {
+            animation: inhale 4s ease-in-out forwards;
         }
 
-
-        .cvv-button {
-
-            display:
-                inline-flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            padding:
-                16px 25px;
-
-            border-radius:
-                13px;
-
-            background:
-                #bd625a;
-
-            color:
-                white;
-
-            font-size:
-                13px;
-
-            font-weight:
-                700;
-
-            white-space:
-                nowrap;
-
-            box-shadow:
-                0 10px 25px
-                rgba(189,98,90,0.15);
-
-            transition:
-                0.25s;
-
+        .breathing-circle.exhale {
+            animation: exhale 6s ease-in-out forwards;
         }
 
+        @keyframes inhale {
+            from {
+                transform: scale(.72);
+            }
 
-        .cvv-button:hover {
-
-            transform:
-                translateY(-2px);
-
-            background:
-                #a95149;
-
+            to {
+                transform: scale(1);
+            }
         }
 
+        @keyframes exhale {
+            from {
+                transform: scale(1);
+            }
 
-        /* =====================================================
-           ABOUT
-        ====================================================== */
-
-        .about {
-
-            background:
-                #f8f7fc;
-
+            to {
+                transform: scale(.72);
+            }
         }
 
-
-        .about-grid {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
-            gap:
-                70px;
-
-            align-items:
-                center;
-
+        .breathing-status {
+            font-family: "Manrope", sans-serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin: 12px 0 20px;
         }
 
-
-        .about-text {
-
-            color:
-                var(--muted);
-
-            font-size:
-                15px;
-
-            line-height:
-                1.9;
-
+        .breathing-controls {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
         }
 
-
-        .about-cards {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(2,1fr);
-
-            gap:
-                14px;
-
+        .small-btn {
+            border: 1px solid var(--border);
+            background: white;
+            padding: 9px 14px;
+            border-radius: 10px;
+            font-weight: 700;
         }
 
-
-        .about-card {
-
-            padding:
-                24px;
-
-            border-radius:
-                18px;
-
-            background:
-                white;
-
-            border:
-                1px solid
-                var(--border);
-
+        body.dark .small-btn {
+            background: #29263a;
+            color: white;
+            border-color: #3b374d;
         }
 
+        /* =========================================================
+           DIÁRIO
+        ========================================================= */
 
-        .about-card span {
-
-            display:
-                block;
-
-            font-size:
-                25px;
-
-            margin-bottom:
-                14px;
-
+        textarea {
+            width: 100%;
+            min-height: 190px;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 18px;
+            resize: vertical;
+            outline: none;
+            background: #faf9fd;
+            color: var(--text);
         }
 
-
-        .about-card h3 {
-
-            font-family:
-                "Manrope",
-                sans-serif;
-
-            font-size:
-                15px;
-
-            margin-bottom:
-                6px;
-
+        textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(118,103,217,.08);
         }
 
-
-        .about-card p {
-
-            color:
-                var(--muted);
-
-            font-size:
-                11px;
-
-            line-height:
-                1.6;
-
+        body.dark textarea {
+            background: #181624;
+            color: white;
+            border-color: #39354b;
         }
 
+        .journal-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-top: 14px;
+            flex-wrap: wrap;
+        }
 
-        /* =====================================================
+        .privacy-note {
+            font-size: .8rem;
+            color: var(--muted);
+        }
+
+        /* =========================================================
+           TAREFAS
+        ========================================================= */
+
+        .tasks {
+            display: grid;
+            gap: 12px;
+        }
+
+        .task {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px;
+            background: #faf9fd;
+            border-radius: 14px;
+        }
+
+        body.dark .task {
+            background: #181624;
+        }
+
+        .task input {
+            width: 19px;
+            height: 19px;
+            accent-color: var(--primary);
+        }
+
+        .task.done label {
+            text-decoration: line-through;
+            opacity: .55;
+        }
+
+        .progress-wrap {
+            margin-top: 22px;
+        }
+
+        .progress-bar {
+            height: 9px;
+            background: #ebe8f4;
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        body.dark .progress-bar {
+            background: #302c40;
+        }
+
+        .progress {
+            height: 100%;
+            width: 0;
+            background: var(--primary);
+            transition: .4s;
+        }
+
+        .progress-text {
+            display: block;
+            margin-top: 8px;
+            color: var(--muted);
+            font-size: .85rem;
+        }
+
+        /* =========================================================
+           CONTEÚDO
+        ========================================================= */
+
+        .topics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .topic {
+            padding: 27px;
+            border-radius: 24px;
+            background: white;
+            border: 1px solid var(--border);
+            transition: .25s;
+        }
+
+        body.dark .topic {
+            background: #211e31;
+            border-color: #343048;
+        }
+
+        .topic:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .topic h3 {
+            margin-bottom: 10px;
+            font-family: "Manrope", sans-serif;
+        }
+
+        .topic p {
+            color: var(--muted);
+            font-size: .93rem;
+        }
+
+        /* =========================================================
+           PEDIR AJUDA
+        ========================================================= */
+
+        .help-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .help-card {
+            border-radius: 28px;
+            padding: 35px;
+            background: var(--soft-green);
+        }
+
+        .help-card.emergency {
+            background: #fff0f2;
+        }
+
+        body.dark .help-card {
+            background: #193027;
+        }
+
+        body.dark .help-card.emergency {
+            background: #352127;
+        }
+
+        .help-card h3 {
+            font-family: "Manrope", sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .help-card p {
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+
+        .phone {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+        }
+
+        /* =========================================================
+           FRASE
+        ========================================================= */
+
+        .quote-section {
+            padding: 70px 0;
+        }
+
+        .quote {
+            background: linear-gradient(135deg, #7667d9, #9589e8);
+            color: white;
+            padding: 65px 40px;
+            border-radius: 35px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(118,103,217,.2);
+        }
+
+        .quote h2 {
+            font-family: "Manrope", sans-serif;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            max-width: 750px;
+            margin: auto;
+            line-height: 1.2;
+        }
+
+        .quote p {
+            margin-top: 15px;
+            opacity: .88;
+        }
+
+        /* =========================================================
            DISCLAIMER
-        ====================================================== */
+        ========================================================= */
 
         .disclaimer {
-
-            padding:
-                35px 6%;
-
-            background:
-                #303044;
-
-            color:
-                rgba(255,255,255,0.7);
-
-            text-align:
-                center;
-
+            padding: 35px;
+            border-radius: 22px;
+            background: #f0eef7;
+            color: #666177;
+            font-size: .9rem;
         }
 
-
-        .disclaimer p {
-
-            max-width:
-                900px;
-
-            margin:
-                auto;
-
-            font-size:
-                11px;
-
-            line-height:
-                1.8;
-
+        body.dark .disclaimer {
+            background: #211e31;
+            color: #aaa4bc;
         }
 
-
-        .disclaimer strong {
-
-            color:
-                white;
-
-        }
-
-
-        /* =====================================================
+        /* =========================================================
            FOOTER
-        ====================================================== */
+        ========================================================= */
 
         footer {
-
-            padding:
-                35px 6%;
-
-            background:
-                #292936;
-
-            color:
-                rgba(255,255,255,0.45);
-
-            text-align:
-                center;
-
-            font-size:
-                11px;
-
+            padding: 45px 0;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
         }
 
-
-        footer span {
-
-            color:
-                #a79eff;
-
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
+        .footer-brand {
+            font-weight: 800;
+            color: var(--text);
+        }
 
-        /* =====================================================
+        body.dark .footer-brand {
+            color: white;
+        }
+
+        /* =========================================================
            REVEAL
-        ====================================================== */
+        ========================================================= */
 
         .reveal {
-
-            opacity:
-                0;
-
-            transform:
-                translateY(20px);
-
-            transition:
-                opacity 0.7s ease,
-                transform 0.7s ease;
-
+            opacity: 0;
+            transform: translateY(25px);
+            transition: .7s ease;
         }
 
-
-        .reveal.active {
-
-            opacity:
-                1;
-
-            transform:
-                translateY(0);
-
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
+        /* =========================================================
+           RESPONSIVO
+        ========================================================= */
 
-        /* =====================================================
-           RESPONSIVE
-        ====================================================== */
+        @media (max-width: 900px) {
 
-        @media (max-width: 950px) {
-
-            .hero-container {
-
-                grid-template-columns:
-                    1fr;
-
+            .hero-grid,
+            .tools-grid,
+            .help-grid {
+                grid-template-columns: 1fr;
             }
-
-
-            .hero-content {
-
-                text-align:
-                    center;
-
-                margin:
-                    auto;
-
-            }
-
-
-            .hero-description {
-
-                margin-left:
-                    auto;
-
-                margin-right:
-                    auto;
-
-            }
-
-
-            .hero-buttons {
-
-                justify-content:
-                    center;
-
-            }
-
 
             .feelings-grid {
-
-                grid-template-columns:
-                    repeat(2,1fr);
-
+                grid-template-columns: repeat(2, 1fr);
             }
 
-
-            .resources-grid {
-
-                grid-template-columns:
-                    1fr;
-
+            .topics {
+                grid-template-columns: 1fr 1fr;
             }
-
-
-            .breathing-grid {
-
-                grid-template-columns:
-                    1fr;
-
-                gap:
-                    50px;
-
-            }
-
-
-            .about-grid {
-
-                grid-template-columns:
-                    1fr;
-
-            }
-
-        }
-
-
-        @media (max-width: 700px) {
-
-            nav {
-
-                padding:
-                    16px 5%;
-
-            }
-
-
-            nav ul {
-
-                display:
-                    none;
-
-            }
-
-
-            section {
-
-                padding:
-                    80px 5%;
-
-            }
-
 
             .hero {
-
-                padding:
-                    120px 5% 70px;
-
+                padding-top: 70px;
             }
 
-
-            .hero h1 {
-
-                letter-spacing:
-                    -2px;
-
+            .hero-card {
+                min-height: 300px;
             }
-
-
-            .calm-card {
-
-                padding:
-                    28px;
-
-            }
-
-
-            .feelings-grid {
-
-                grid-template-columns:
-                    1fr;
-
-            }
-
-
-            .message-box {
-
-                padding:
-                    35px 22px;
-
-            }
-
-
-            .help-box {
-
-                grid-template-columns:
-                    1fr;
-
-                padding:
-                    30px 25px;
-
-            }
-
-
-            .cvv-button {
-
-                width:
-                    100%;
-
-            }
-
-
-            .about-cards {
-
-                grid-template-columns:
-                    1fr;
-
-            }
-
         }
 
+        @media (max-width: 650px) {
 
-        @media (prefers-reduced-motion: reduce) {
-
-            *,
-            *::before,
-            *::after {
-
-                animation-duration:
-                    0.01ms !important;
-
-                animation-iteration-count:
-                    1 !important;
-
-                scroll-behavior:
-                    auto !important;
-
-                transition-duration:
-                    0.01ms !important;
-
+            .nav-links {
+                display: none;
             }
 
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .feelings-grid,
+            .topics {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 65px 0;
+            }
+
+            .tool-card,
+            .help-card {
+                padding: 25px;
+            }
+
+            .quote {
+                padding: 45px 25px;
+            }
         }
 
     </style>
-
 </head>
-
 
 <body>
 
-
-    <!-- =====================================================
+    <!-- =========================================================
          NAVBAR
-    ====================================================== -->
+    ========================================================= -->
 
-    <nav id="navbar">
+    <header>
 
-        <a
-            href="#inicio"
-            class="logo"
-        >
-            acolhe<span>.</span>
-        </a>
+        <div class="container">
 
+            <nav>
 
-        <ul>
+                <a href="#inicio" class="logo">
 
-            <li>
-                <a href="#inicio">
-                    Início
+                    <span class="logo-icon">🌿</span>
+
+                    <span>Acolhe</span>
+
                 </a>
-            </li>
 
-            <li>
-                <a href="#sentimentos">
-                    Como você está?
-                </a>
-            </li>
+                <div class="nav-links">
 
-            <li>
-                <a href="#recursos">
-                    Recursos
-                </a>
-            </li>
+                    <a href="#checkin">Como você está?</a>
 
-            <li>
-                <a href="#ajuda">
-                    Preciso de ajuda
-                </a>
-            </li>
+                    <a href="#ferramentas">Ferramentas</a>
 
-        </ul>
+                    <a href="#entenda">Entenda</a>
 
-    </nav>
-
-
-    <!-- =====================================================
-         HERO
-    ====================================================== -->
-
-    <section
-        class="hero"
-        id="inicio"
-    >
-
-        <div class="hero-container">
-
-
-            <div class="hero-content">
-
-                <div class="eyebrow">
-
-                    <span class="eyebrow-dot"></span>
-
-                    Um espaço para você
+                    <a href="#ajuda">Ajuda</a>
 
                 </div>
 
+                <button
+                    class="theme-toggle"
+                    id="themeToggle"
+                    aria-label="Alternar modo escuro"
+                    title="Alternar modo escuro">
+                    🌙
+                </button>
 
-                <h1>
+            </nav>
 
-                    Você não precisa
-                    <span>
-                        passar por tudo sozinho.
-                    </span>
+        </div>
 
-                </h1>
-
-
-                <p class="hero-description">
-
-                    Um espaço tranquilo para respirar,
-                    entender o que você está sentindo,
-                    encontrar informação e lembrar que
-                    pedir ajuda também é uma forma de cuidado.
-
-                </p>
+    </header>
 
 
-                <div class="hero-buttons">
+    <main>
 
-                    <a
-                        href="#sentimentos"
-                        class="btn btn-primary"
-                    >
-                        🌿 Quero começar
-                    </a>
+        <!-- =====================================================
+             HERO
+        ====================================================== -->
 
+        <section class="hero" id="inicio">
 
-                    <a
-                        href="#ajuda"
-                        class="btn btn-soft"
-                    >
-                        🤍 Preciso conversar
-                    </a>
+            <div class="container">
 
-                </div>
+                <div class="hero-grid">
 
-            </div>
+                    <div class="reveal">
 
-
-            <div class="hero-visual">
-
-                <div class="calm-card">
-
-                    <div class="calm-circle">
-                        🌙
-                    </div>
-
-
-                    <h3>
-                        Respire um pouco.
-                    </h3>
-
-
-                    <p>
-
-                        Você não precisa resolver
-                        tudo agora. Dê um pequeno
-                        espaço para você.
-
-                    </p>
-
-
-                    <div class="breathing">
-
-                        <span>
-                            UM MOMENTO DE PAUSA
+                        <span class="eyebrow">
+                            🌿 Um espaço para respirar
                         </span>
 
-                        <strong>
-                            Inspire. Respire. Continue.
-                        </strong>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         SENTIMENTOS
-    ====================================================== -->
-
-    <section
-        class="feelings"
-        id="sentimentos"
-    >
-
-        <div class="container">
-
-            <div class="section-label">
-                Como você está?
-            </div>
-
-
-            <h2 class="section-title">
-                Não precisa explicar tudo.
-            </h2>
-
-
-            <p class="section-description">
-
-                Escolha o que mais se aproxima de como
-                você está se sentindo agora. Você pode
-                simplesmente começar por aqui.
-
-            </p>
-
-
-            <div class="feelings-grid">
-
-
-                <div class="feeling-card reveal">
-
-                    <div class="feeling-icon">
-                        😰
-                    </div>
-
-                    <h3>
-                        Estou ansioso(a)
-                    </h3>
-
-                    <p>
-
-                        Minha mente não para,
-                        estou preocupado(a) ou
-                        sentindo muita tensão.
-
-                    </p>
-
-                </div>
-
-
-                <div class="feeling-card reveal">
-
-                    <div class="feeling-icon">
-                        😔
-                    </div>
-
-                    <h3>
-                        Estou triste
-                    </h3>
-
-                    <p>
-
-                        Estou passando por um
-                        momento difícil e está
-                        pesado continuar.
-
-                    </p>
-
-                </div>
-
-
-                <div class="feeling-card reveal">
-
-                    <div class="feeling-icon">
-                        🫠
-                    </div>
-
-                    <h3>
-                        Estou sobrecarregado(a)
-                    </h3>
-
-                    <p>
-
-                        Parece que existem
-                        coisas demais acontecendo
-                        ao mesmo tempo.
-
-                    </p>
-
-                </div>
-
-
-                <div class="feeling-card reveal">
-
-                    <div class="feeling-icon">
-                        🥺
-                    </div>
-
-                    <h3>
-                        Estou sozinho(a)
-                    </h3>
-
-                    <p>
-
-                        Eu queria conversar,
-                        mas não sei com quem
-                        ou como começar.
-
-                    </p>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         MENSAGEM
-    ====================================================== -->
-
-    <section class="message-section">
-
-        <div class="container">
-
-            <div class="section-label">
-                Uma coisa importante
-            </div>
-
-
-            <div class="message-box reveal">
-
-                <div class="quote">
-
-                    “Você não precisa estar
-                    bem o tempo inteiro.”
-
-                </div>
-
-
-                <p>
-
-                    Existem dias em que simplesmente
-                    continuar já exige muito.
-                    Respeite o seu tempo e, quando
-                    precisar, procure alguém de confiança
-                    para conversar.
-
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         RECURSOS
-    ====================================================== -->
-
-    <section
-        id="recursos"
-    >
-
-        <div class="container">
-
-            <div class="section-label">
-                Recursos
-            </div>
-
-
-            <h2 class="section-title">
-                Pequenos caminhos para cuidar de você.
-            </h2>
-
-
-            <p class="section-description">
-
-                Informação e práticas simples podem
-                ajudar a atravessar momentos difíceis.
-                Elas complementam — mas não substituem —
-                acompanhamento profissional.
-
-            </p>
-
-
-            <div class="resources-grid">
-
-
-                <div class="resource-card reveal">
-
-                    <div class="resource-icon">
-                        🌬️
-                    </div>
-
-                    <h3>
-                        Respirar
-                    </h3>
-
-                    <p>
-
-                        Uma pausa consciente pode ajudar
-                        você a desacelerar por alguns
-                        minutos e voltar sua atenção
-                        para o presente.
-
-                    </p>
-
-                    <a
-                        href="#respirar"
-                        class="resource-link"
-                    >
-                        Fazer uma pausa →
-                    </a>
-
-                </div>
-
-
-                <div class="resource-card reveal">
-
-                    <div class="resource-icon">
-                        🧠
-                    </div>
-
-                    <h3>
-                        Entender
-                    </h3>
-
-                    <p>
-
-                        Conhecer melhor sentimentos,
-                        ansiedade e depressão pode
-                        ajudar a reconhecer quando
-                        buscar apoio.
-
-                    </p>
-
-                    <a
-                        href="#entender"
-                        class="resource-link"
-                    >
-                        Saber mais →
-                    </a>
-
-                </div>
-
-
-                <div class="resource-card reveal">
-
-                    <div class="resource-icon">
-                        🤝
-                    </div>
-
-                    <h3>
-                        Buscar apoio
-                    </h3>
-
-                    <p>
-
-                        Conversar com alguém de confiança
-                        ou procurar um profissional pode
-                        ser um passo importante.
-
-                    </p>
-
-                    <a
-                        href="#ajuda"
-                        class="resource-link"
-                    >
-                        Encontrar ajuda →
-                    </a>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         RESPIRAÇÃO
-    ====================================================== -->
-
-    <section
-        class="breathing-section"
-        id="respirar"
-    >
-
-        <div class="container">
-
-            <div class="breathing-grid">
-
-
-                <div class="breathing-visual">
-
-                    <div class="breath-orb">
-
-                        <span>
-                            Respire
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <div>
-
-                    <div class="section-label">
-                        Pausa de alguns minutos
-                    </div>
-
-
-                    <h2 class="section-title">
-                        Vamos respirar juntos?
-                    </h2>
-
-
-                    <p class="section-description">
-
-                        Não precisa fazer perfeitamente.
-                        Apenas acompanhe o ritmo por
-                        alguns ciclos e observe como
-                        você está se sentindo.
-
-                    </p>
-
-
-                    <div class="steps">
-
-
-                        <div class="step">
-
-                            <div class="step-number">
-                                1
-                            </div>
-
-                            <p>
-
-                                Inspire lentamente pelo nariz
-                                enquanto a esfera aumenta.
-
-                            </p>
+                        <h1>
+                            Você não precisa passar por
+                            <span>tudo sozinho.</span>
+                        </h1>
+
+                        <p>
+                            O Acolhe é um espaço digital para você
+                            parar por alguns minutos, entender o que
+                            está sentindo, cuidar de si e encontrar
+                            caminhos para buscar apoio.
+                        </p>
+
+                        <div class="hero-buttons">
+
+                            <a href="#checkin" class="btn btn-primary">
+                                🌱 Quero começar
+                            </a>
+
+                            <a href="#ajuda" class="btn btn-secondary">
+                                🤍 Preciso de ajuda
+                            </a>
 
                         </div>
 
+                    </div>
 
-                        <div class="step">
 
-                            <div class="step-number">
-                                2
-                            </div>
+                    <div class="hero-card reveal">
 
-                            <p>
-
-                                Faça uma pequena pausa
-                                sem forçar a respiração.
-
-                            </p>
-
+                        <div class="hero-orb">
+                            🌿
                         </div>
-
-
-                        <div class="step">
-
-                            <div class="step-number">
-                                3
-                            </div>
-
-                            <p>
-
-                                Solte o ar lentamente e
-                                permita que o corpo relaxe.
-
-                            </p>
-
-                        </div>
-
-
-                        <div class="step">
-
-                            <div class="step-number">
-                                4
-                            </div>
-
-                            <p>
-
-                                Repita algumas vezes e
-                                respeite o seu próprio ritmo.
-
-                            </p>
-
-                        </div>
-
 
                     </div>
 
@@ -2529,408 +992,1149 @@
 
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
-    <!-- =====================================================
-         ENTENDER
-    ====================================================== -->
+        <!-- =====================================================
+             CHECK-IN
+        ====================================================== -->
 
-    <section
-        class="about"
-        id="entender"
-    >
+        <section class="checkin" id="checkin">
 
-        <div class="container">
+            <div class="container">
 
-            <div class="about-grid">
+                <div class="section-heading reveal">
 
-
-                <div>
-
-                    <div class="section-label">
-                        Informação
+                    <div class="mini">
+                        CHECK-IN
                     </div>
-
-
-                    <h2 class="section-title">
-                        Entender também é uma forma de cuidado.
-                    </h2>
-
-
-                    <p class="about-text">
-
-                        Ansiedade e depressão podem afetar
-                        diferentes áreas da vida e cada pessoa
-                        pode vivenciar esses estados de uma
-                        maneira diferente.
-
-                        <br><br>
-
-                        Sentir tristeza, preocupação ou
-                        cansaço em determinados momentos
-                        não significa automaticamente que
-                        exista um transtorno.
-
-                        <br><br>
-
-                        Quando os sintomas são persistentes,
-                        intensos ou começam a interferir
-                        significativamente na vida cotidiana,
-                        conversar com um profissional de saúde
-                        pode ser um passo importante.
-
-                    </p>
-
-                </div>
-
-
-                <div class="about-cards">
-
-
-                    <div class="about-card">
-
-                        <span>
-                            🌱
-                        </span>
-
-                        <h3>
-                            Autocuidado
-                        </h3>
-
-                        <p>
-
-                            Sono, alimentação, movimento,
-                            conexão social e momentos
-                            de descanso podem fazer parte
-                            do cuidado diário.
-
-                        </p>
-
-                    </div>
-
-
-                    <div class="about-card">
-
-                        <span>
-                            💬
-                        </span>
-
-                        <h3>
-                            Conversa
-                        </h3>
-
-                        <p>
-
-                            Falar com alguém de confiança
-                            pode diminuir o peso de
-                            enfrentar tudo sozinho.
-
-                        </p>
-
-                    </div>
-
-
-                    <div class="about-card">
-
-                        <span>
-                            🩺
-                        </span>
-
-                        <h3>
-                            Cuidado profissional
-                        </h3>
-
-                        <p>
-
-                            Psicólogos, psiquiatras e
-                            outros profissionais podem
-                            avaliar cada situação e
-                            orientar o cuidado adequado.
-
-                        </p>
-
-                    </div>
-
-
-                    <div class="about-card">
-
-                        <span>
-                            🤍
-                        </span>
-
-                        <h3>
-                            Sem julgamento
-                        </h3>
-
-                        <p>
-
-                            Pedir ajuda não é sinal de
-                            fraqueza. É reconhecer que
-                            você merece cuidado.
-
-                        </p>
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         AJUDA
-    ====================================================== -->
-
-    <section
-        class="help-section"
-        id="ajuda"
-    >
-
-        <div class="container">
-
-
-            <div class="help-box reveal">
-
-
-                <div>
-
-                    <div class="help-label">
-                        Preciso de ajuda agora
-                    </div>
-
 
                     <h2>
-                        Você não precisa enfrentar
-                        um momento difícil sozinho.
+                        Como você está hoje?
                     </h2>
 
-
                     <p>
-
-                        Se você sente que precisa conversar
-                        com alguém agora, o CVV oferece
-                        apoio emocional gratuito, sigiloso
-                        e anônimo pelo telefone 188,
-                        24 horas por dia.
-
-                        <br><br>
-
-                        Se houver risco imediato de você
-                        se machucar ou de outra pessoa se
-                        machucar, procure também um serviço
-                        de emergência ou vá a um pronto
-                        atendimento.
-
+                        Não existe resposta certa. Escolha o que
+                        mais se aproxima de como você está se sentindo.
                     </p>
 
                 </div>
 
 
-                <a
-                    href="https://cvv.org.br/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="cvv-button"
-                >
+                <div class="feelings-grid reveal">
 
-                    💬 CVV — 188
+                    <button class="feeling-card" data-feeling="ansioso">
 
-                </a>
+                        <div class="feeling-icon">
+                            😰
+                        </div>
 
+                        <strong>
+                            Estou ansioso(a)
+                        </strong>
+
+                        <span>
+                            Minha cabeça não para.
+                        </span>
+
+                    </button>
+
+
+                    <button class="feeling-card" data-feeling="triste">
+
+                        <div class="feeling-icon">
+                            😔
+                        </div>
+
+                        <strong>
+                            Estou triste
+                        </strong>
+
+                        <span>
+                            Hoje está difícil.
+                        </span>
+
+                    </button>
+
+
+                    <button class="feeling-card" data-feeling="sobrecarregado">
+
+                        <div class="feeling-icon">
+                            🫠
+                        </div>
+
+                        <strong>
+                            Estou sobrecarregado(a)
+                        </strong>
+
+                        <span>
+                            Parece que é coisa demais.
+                        </span>
+
+                    </button>
+
+
+                    <button class="feeling-card" data-feeling="sozinho">
+
+                        <div class="feeling-icon">
+                            🥺
+                        </div>
+
+                        <strong>
+                            Estou sozinho(a)
+                        </strong>
+
+                        <span>
+                            Eu queria conversar.
+                        </span>
+
+                    </button>
+
+
+                    <button class="feeling-card" data-feeling="cansado">
+
+                        <div class="feeling-icon">
+                            😴
+                        </div>
+
+                        <strong>
+                            Estou sem energia
+                        </strong>
+
+                        <span>
+                            Tudo parece exigir esforço.
+                        </span>
+
+                    </button>
+
+
+                    <button class="feeling-card" data-feeling="confuso">
+
+                        <div class="feeling-icon">
+                            😵‍💫
+                        </div>
+
+                        <strong>
+                            Estou confuso(a)
+                        </strong>
+
+                        <span>
+                            Nem sei explicar o que sinto.
+                        </span>
+
+                    </button>
+
+
+                    <button class="feeling-card" data-feeling="melhor">
+
+                        <div class="feeling-icon">
+                            🙂
+                        </div>
+
+                        <strong>
+                            Estou melhor hoje
+                        </strong>
+
+                        <span>
+                            Hoje está um pouco mais leve.
+                        </span>
+
+                    </button>
+
+
+                    <button class="feeling-card" data-feeling="outro">
+
+                        <div class="feeling-icon">
+                            💭
+                        </div>
+
+                        <strong>
+                            Outra coisa
+                        </strong>
+
+                        <span>
+                            É difícil colocar em palavras.
+                        </span>
+
+                    </button>
+
+                </div>
+
+
+                <div class="checkin-result" id="checkinResult">
+
+                    <strong id="resultTitle">
+                        Você está sendo ouvido.
+                    </strong>
+
+                    <p id="resultText">
+                        Obrigado por parar alguns minutos para olhar
+                        para o que está sentindo.
+                    </p>
+
+                </div>
 
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
-    <!-- =====================================================
-         AVISO
-    ====================================================== -->
+        <!-- =====================================================
+             FERRAMENTAS
+        ====================================================== -->
 
-    <div class="disclaimer">
+        <section id="ferramentas">
 
-        <p>
+            <div class="container">
 
-            <strong>Importante:</strong>
-            o Acolhe é um projeto de informação e
-            acolhimento. O conteúdo não oferece diagnóstico,
-            tratamento médico ou psicológico e não substitui
-            profissionais de saúde. Em situações de emergência,
-            procure os serviços de emergência disponíveis
-            na sua região.
+                <div class="section-heading reveal">
 
-        </p>
+                    <div class="mini">
+                        AGORA
+                    </div>
 
-    </div>
+                    <h2>
+                        Pequenas coisas que podem ajudar agora.
+                    </h2>
+
+                    <p>
+                        Você não precisa resolver a vida inteira hoje.
+                        Escolha apenas uma coisa para começar.
+                    </p>
+
+                </div>
 
 
-    <!-- =====================================================
+                <div class="tools-grid">
+
+                    <!-- RESPIRAÇÃO -->
+
+                    <div class="tool-card reveal">
+
+                        <div class="tool-icon">
+                            🌬️
+                        </div>
+
+                        <h3>
+                            Respire comigo
+                        </h3>
+
+                        <p>
+                            Vamos desacelerar por alguns minutos.
+                            Siga o movimento do círculo.
+                        </p>
+
+                        <div class="breathing-area">
+
+                            <div
+                                class="breathing-circle"
+                                id="breathingCircle">
+
+                                <span id="breathingText">
+                                    Pronto?
+                                </span>
+
+                            </div>
+
+                            <div
+                                class="breathing-status"
+                                id="breathingStatus">
+                                Escolha uma duração.
+                            </div>
+
+                            <div class="breathing-controls">
+
+                                <button
+                                    class="small-btn"
+                                    onclick="startBreathing(1)">
+                                    1 minuto
+                                </button>
+
+                                <button
+                                    class="small-btn"
+                                    onclick="startBreathing(3)">
+                                    3 minutos
+                                </button>
+
+                                <button
+                                    class="small-btn"
+                                    onclick="startBreathing(5)">
+                                    5 minutos
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- DIÁRIO -->
+
+                    <div class="tool-card reveal">
+
+                        <div class="tool-icon">
+                            💭
+                        </div>
+
+                        <h3>
+                            Coloque para fora
+                        </h3>
+
+                        <p>
+                            Escreva sem precisar organizar seus pensamentos.
+                        </p>
+
+                        <textarea
+                            id="journal"
+                            placeholder="O que está passando pela sua cabeça agora?"></textarea>
+
+                        <div class="journal-actions">
+
+                            <span class="privacy-note">
+                                🔒 Seu texto fica salvo apenas neste navegador.
+                            </span>
+
+                            <button
+                                class="btn btn-primary"
+                                onclick="saveJournal()">
+                                Guardar
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- TAREFAS -->
+
+                    <div class="tool-card reveal">
+
+                        <div class="tool-icon">
+                            🌱
+                        </div>
+
+                        <h3>
+                            Só por hoje
+                        </h3>
+
+                        <p>
+                            Não precisa fazer tudo. Escolha pequenas coisas.
+                        </p>
+
+                        <div class="tasks">
+
+                            <div class="task">
+                                <input type="checkbox" id="task1">
+                                <label for="task1">Beber um pouco de água</label>
+                            </div>
+
+                            <div class="task">
+                                <input type="checkbox" id="task2">
+                                <label for="task2">Respirar por um minuto</label>
+                            </div>
+
+                            <div class="task">
+                                <input type="checkbox" id="task3">
+                                <label for="task3">Comer alguma coisa</label>
+                            </div>
+
+                            <div class="task">
+                                <input type="checkbox" id="task4">
+                                <label for="task4">Tomar um banho</label>
+                            </div>
+
+                            <div class="task">
+                                <input type="checkbox" id="task5">
+                                <label for="task5">Abrir a janela</label>
+                            </div>
+
+                            <div class="task">
+                                <input type="checkbox" id="task6">
+                                <label for="task6">Conversar com alguém</label>
+                            </div>
+
+                        </div>
+
+                        <div class="progress-wrap">
+
+                            <div class="progress-bar">
+
+                                <div
+                                    class="progress"
+                                    id="progress">
+                                </div>
+
+                            </div>
+
+                            <span
+                                class="progress-text"
+                                id="progressText">
+                                0 de 6 concluídas
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CONVERSA -->
+
+                    <div class="tool-card reveal">
+
+                        <div class="tool-icon">
+                            🤝
+                        </div>
+
+                        <h3>
+                            Você pode pedir ajuda.
+                        </h3>
+
+                        <p>
+                            Às vezes, começar uma conversa é a parte
+                            mais difícil.
+                        </p>
+
+                        <div class="checkin-result show">
+
+                            <strong>
+                                Você pode simplesmente dizer:
+                            </strong>
+
+                            <p>
+                                “Eu não estou muito bem e não sei
+                                exatamente como explicar. Mas eu
+                                precisava conversar com alguém.”
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             FRASE
+        ====================================================== -->
+
+        <section class="quote-section">
+
+            <div class="container">
+
+                <div class="quote reveal">
+
+                    <h2>
+                        Você não precisa estar bem o tempo inteiro.
+                    </h2>
+
+                    <p>
+                        Pedir ajuda também é uma forma de cuidar de si.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             ENTENDA
+        ====================================================== -->
+
+        <section id="entenda">
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <div class="mini">
+                        ENTENDA
+                    </div>
+
+                    <h2>
+                        Dar nome ao que sentimos pode ajudar.
+                    </h2>
+
+                    <p>
+                        Informação pode ser um primeiro passo para
+                        entender o que está acontecendo — mas não
+                        substitui uma avaliação profissional.
+                    </p>
+
+                </div>
+
+
+                <div class="topics">
+
+                    <article class="topic reveal">
+
+                        <h3>
+                            😰 Ansiedade
+                        </h3>
+
+                        <p>
+                            Pode envolver preocupação, medo, tensão,
+                            inquietação e sintomas físicos. Em alguns
+                            momentos de estresse, sentir ansiedade
+                            pode ser uma reação comum.
+                        </p>
+
+                    </article>
+
+
+                    <article class="topic reveal">
+
+                        <h3>
+                            😔 Tristeza
+                        </h3>
+
+                        <p>
+                            A tristeza faz parte da experiência humana.
+                            Ela pode aparecer depois de perdas,
+                            frustrações ou períodos difíceis.
+                        </p>
+
+                    </article>
+
+
+                    <article class="topic reveal">
+
+                        <h3>
+                            🫠 Sobrecarga
+                        </h3>
+
+                        <p>
+                            Quando muitas demandas se acumulam,
+                            podemos sentir que não temos energia
+                            suficiente para lidar com tudo.
+                        </p>
+
+                    </article>
+
+
+                    <article class="topic reveal">
+
+                        <h3>
+                            🥺 Solidão
+                        </h3>
+
+                        <p>
+                            É possível sentir solidão mesmo estando
+                            perto de outras pessoas. Conversar com
+                            alguém de confiança pode ser um começo.
+                        </p>
+
+                    </article>
+
+
+                    <article class="topic reveal">
+
+                        <h3>
+                            😴 Cansaço
+                        </h3>
+
+                        <p>
+                            Sono, rotina, estresse e diversos fatores
+                            podem influenciar nossa energia. Se isso
+                            persistir ou interferir na vida diária,
+                            vale buscar orientação profissional.
+                        </p>
+
+                    </article>
+
+
+                    <article class="topic reveal">
+
+                        <h3>
+                            🧠 Depressão
+                        </h3>
+
+                        <p>
+                            Depressão é diferente de oscilações comuns
+                            de humor. Sintomas persistentes e intensos
+                            merecem avaliação de um profissional de saúde.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             AJUDA
+        ====================================================== -->
+
+        <section id="ajuda">
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <div class="mini">
+                        APOIO
+                    </div>
+
+                    <h2>
+                        Você não precisa descobrir tudo sozinho.
+                    </h2>
+
+                    <p>
+                        Procurar ajuda é um passo de cuidado, não um
+                        sinal de fraqueza.
+                    </p>
+
+                </div>
+
+
+                <div class="help-grid">
+
+                    <div class="help-card reveal">
+
+                        <h3>
+                            🤝 Converse com alguém
+                        </h3>
+
+                        <p>
+                            Pode ser um amigo, familiar, professor,
+                            colega ou outra pessoa em quem você confia.
+                        </p>
+
+                        <p>
+                            Você não precisa ter as palavras perfeitas.
+                            Basta começar.
+                        </p>
+
+                    </div>
+
+
+                    <div class="help-card reveal">
+
+                        <h3>
+                            🧑‍⚕️ Procure apoio profissional
+                        </h3>
+
+                        <p>
+                            Psicólogos, psiquiatras e outros profissionais
+                            de saúde podem ajudar a compreender o que
+                            está acontecendo e indicar caminhos de cuidado.
+                        </p>
+
+                    </div>
+
+
+                    <div class="help-card emergency reveal">
+
+                        <h3>
+                            🆘 Preciso conversar agora
+                        </h3>
+
+                        <p>
+                            O CVV oferece apoio emocional gratuito,
+                            com atendimento pelo telefone 188.
+                        </p>
+
+                        <a
+                            href="tel:188"
+                            class="phone">
+                            📞 188
+                        </a>
+
+                        <p style="margin-top:15px; font-size:.85rem;">
+                            Atendimento 24 horas, todos os dias,
+                            em todo o território nacional.
+                        </p>
+
+                    </div>
+
+
+                    <div class="help-card emergency reveal">
+
+                        <h3>
+                            🚨 Existe risco imediato?
+                        </h3>
+
+                        <p>
+                            Se você acredita que pode machucar a si
+                            mesmo ou outra pessoa, procure imediatamente
+                            um serviço de emergência ou peça para alguém
+                            de confiança ficar com você.
+                        </p>
+
+                        <p>
+                            Você não precisa enfrentar uma situação
+                            de risco sozinho.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             DISCLAIMER
+        ====================================================== -->
+
+        <section>
+
+            <div class="container">
+
+                <div class="disclaimer reveal">
+
+                    <strong>
+                        🌿 Sobre o Acolhe
+                    </strong>
+
+                    <br><br>
+
+                    O Acolhe é um projeto informativo e de apoio
+                    emocional. Ele não realiza diagnósticos,
+                    não prescreve tratamentos e não substitui
+                    psicólogos, psiquiatras, médicos ou outros
+                    profissionais de saúde.
+
+                    <br><br>
+
+                    As ferramentas disponíveis aqui têm o objetivo
+                    de oferecer momentos de pausa, reflexão e
+                    autocuidado. Em situações de sofrimento
+                    persistente, intenso ou risco imediato,
+                    procure ajuda profissional ou um serviço
+                    de emergência.
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
          FOOTER
-    ====================================================== -->
+    ========================================================== -->
 
     <footer>
 
-        Acolhe
-        <span>•</span>
-        Um espaço para respirar, ouvir e buscar ajuda.
+        <div class="container">
 
-        <br><br>
+            <div class="footer-content">
 
-        Projeto independente desenvolvido para fins
-        educativos e de acolhimento.
+                <div>
+
+                    <div class="footer-brand">
+                        🌿 Acolhe
+                    </div>
+
+                    <div>
+                        Um espaço para respirar, se ouvir e buscar apoio.
+                    </div>
+
+                </div>
+
+                <div>
+                    © 2026 Acolhe
+                </div>
+
+            </div>
+
+        </div>
 
     </footer>
 
 
-    <!-- =====================================================
+    <!-- =========================================================
          JAVASCRIPT
-    ====================================================== -->
+    ========================================================== -->
 
     <script>
 
+        /* =========================================================
+           MODO ESCURO
+        ========================================================== */
 
-        /* =====================================================
-           NAVBAR
-        ====================================================== */
+        const themeToggle = document.getElementById("themeToggle");
 
-        const navbar =
-            document.getElementById("navbar");
+        const savedTheme = localStorage.getItem("acolhe-theme");
 
+        if (savedTheme === "dark") {
 
-        window.addEventListener(
-            "scroll",
-            () => {
+            document.body.classList.add("dark");
 
-                if (
-                    window.scrollY > 30
-                ) {
+            themeToggle.textContent = "☀️";
 
-                    navbar.classList.add(
-                        "scrolled"
-                    );
+        }
 
-                } else {
+        themeToggle.addEventListener("click", () => {
 
-                    navbar.classList.remove(
-                        "scrolled"
-                    );
+            document.body.classList.toggle("dark");
 
-                }
+            const dark = document.body.classList.contains("dark");
 
-            }
-        );
-
-
-        /* =====================================================
-           REVEAL
-        ====================================================== */
-
-        const revealElements =
-            document.querySelectorAll(
-                ".reveal"
+            localStorage.setItem(
+                "acolhe-theme",
+                dark ? "dark" : "light"
             );
 
+            themeToggle.textContent = dark ? "☀️" : "🌙";
 
-        const revealObserver =
+        });
+
+
+        /* =========================================================
+           CHECK-IN EMOCIONAL
+        ========================================================== */
+
+        const feelings = {
+
+            ansioso: {
+                title: "Respire. Você não precisa resolver tudo agora.",
+                text: "Quando a cabeça parece estar acelerada, tente diminuir o ritmo por alguns minutos. Você pode começar pelo exercício de respiração abaixo."
+            },
+
+            triste: {
+                title: "Tudo bem reconhecer que hoje está difícil.",
+                text: "Você não precisa fingir que está bem. Se puder, tente conversar com alguém em quem confia."
+            },
+
+            sobrecarregado: {
+                title: "Você não precisa carregar tudo ao mesmo tempo.",
+                text: "Escolha apenas uma pequena coisa para fazer agora. O restante pode esperar um pouco."
+            },
+
+            sozinho: {
+                title: "Sentir-se sozinho pode ser muito difícil.",
+                text: "Se houver alguém em quem você confia, considere mandar uma mensagem. Você não precisa saber exatamente o que dizer."
+            },
+
+            cansado: {
+                title: "Seu corpo e sua mente também precisam de pausa.",
+                text: "Se puder, diminua o ritmo por alguns minutos. Pequenos cuidados também contam."
+            },
+
+            confuso: {
+                title: "Você não precisa saber explicar tudo.",
+                text: "Às vezes conseguimos perceber que não estamos bem antes de conseguir colocar isso em palavras."
+            },
+
+            melhor: {
+                title: "Que bom que hoje está um pouco mais leve. 🌱",
+                text: "Guarde esse momento. Cuidar de si também significa reconhecer os dias que ficam um pouco melhores."
+            },
+
+            outro: {
+                title: "Você pode simplesmente não saber explicar.",
+                text: "Não encontrar as palavras certas não torna o que você sente menos importante."
+            }
+
+        };
+
+
+        document.querySelectorAll(".feeling-card").forEach(card => {
+
+            card.addEventListener("click", () => {
+
+                document
+                    .querySelectorAll(".feeling-card")
+                    .forEach(item => item.classList.remove("active"));
+
+                card.classList.add("active");
+
+                const feeling = card.dataset.feeling;
+
+                const result = feelings[feeling];
+
+                document.getElementById("resultTitle").textContent =
+                    result.title;
+
+                document.getElementById("resultText").textContent =
+                    result.text;
+
+                document
+                    .getElementById("checkinResult")
+                    .classList.add("show");
+
+            });
+
+        });
+
+
+        /* =========================================================
+           DIÁRIO
+        ========================================================== */
+
+        const journal = document.getElementById("journal");
+
+        const savedJournal =
+            localStorage.getItem("acolhe-journal");
+
+        if (savedJournal) {
+
+            journal.value = savedJournal;
+
+        }
+
+
+        function saveJournal() {
+
+            localStorage.setItem(
+                "acolhe-journal",
+                journal.value
+            );
+
+            const button = document.querySelector(
+                ".journal-actions .btn"
+            );
+
+            const original = button.textContent;
+
+            button.textContent = "✓ Guardado";
+
+            setTimeout(() => {
+
+                button.textContent = original;
+
+            }, 1800);
+
+        }
+
+
+        /* =========================================================
+           TAREFAS
+        ========================================================== */
+
+        const taskInputs =
+            document.querySelectorAll(".task input");
+
+        taskInputs.forEach((input, index) => {
+
+            const saved =
+                localStorage.getItem(`acolhe-task-${index}`);
+
+            if (saved === "true") {
+
+                input.checked = true;
+
+            }
+
+            input.addEventListener("change", () => {
+
+                localStorage.setItem(
+                    `acolhe-task-${index}`,
+                    input.checked
+                );
+
+                updateTasks();
+
+            });
+
+        });
+
+
+        function updateTasks() {
+
+            const total = taskInputs.length;
+
+            const completed =
+                [...taskInputs]
+                .filter(input => input.checked)
+                .length;
+
+            const percentage =
+                (completed / total) * 100;
+
+            document.getElementById("progress").style.width =
+                `${percentage}%`;
+
+            document.getElementById("progressText").textContent =
+                `${completed} de ${total} concluídas`;
+
+            taskInputs.forEach(input => {
+
+                input.closest(".task")
+                    .classList.toggle(
+                        "done",
+                        input.checked
+                    );
+
+            });
+
+        }
+
+
+        updateTasks();
+
+
+        /* =========================================================
+           RESPIRAÇÃO
+        ========================================================== */
+
+        let breathingTimer = null;
+
+        let breathingRunning = false;
+
+
+        function startBreathing(minutes) {
+
+            clearInterval(breathingTimer);
+
+            const duration =
+                minutes * 60 * 1000;
+
+            const start =
+                Date.now();
+
+            breathingRunning = true;
+
+            const circle =
+                document.getElementById("breathingCircle");
+
+            const text =
+                document.getElementById("breathingText");
+
+            const status =
+                document.getElementById("breathingStatus");
+
+
+            function cycle() {
+
+                if (!breathingRunning) return;
+
+                circle.classList.remove("exhale");
+
+                circle.classList.add("inhale");
+
+                text.textContent = "Inspire";
+
+                status.textContent =
+                    "Puxe o ar devagar...";
+
+                setTimeout(() => {
+
+                    if (!breathingRunning) return;
+
+                    circle.classList.remove("inhale");
+
+                    text.textContent = "Segure";
+
+                    status.textContent =
+                        "Segure por alguns segundos...";
+
+                }, 4000);
+
+
+                setTimeout(() => {
+
+                    if (!breathingRunning) return;
+
+                    circle.classList.add("exhale");
+
+                    text.textContent = "Expire";
+
+                    status.textContent =
+                        "Solte o ar lentamente...";
+
+                }, 5500);
+
+            }
+
+
+            cycle();
+
+            breathingTimer =
+                setInterval(cycle, 11500);
+
+
+            setTimeout(() => {
+
+                breathingRunning = false;
+
+                clearInterval(breathingTimer);
+
+                circle.classList.remove(
+                    "inhale",
+                    "exhale"
+                );
+
+                text.textContent = "Concluído";
+
+                status.textContent =
+                    "Você reservou alguns minutos para você. 🌿";
+
+            }, duration);
+
+        }
+
+
+        /* =========================================================
+           REVEAL AO ROLAR
+        ========================================================== */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+
+        const observer =
             new IntersectionObserver(
 
-                (entries) => {
+                entries => {
 
-                    entries.forEach(
-                        (entry) => {
+                    entries.forEach(entry => {
 
-                            if (
-                                entry.isIntersecting
-                            ) {
+                        if (entry.isIntersecting) {
 
-                                entry.target.classList.add(
-                                    "active"
-                                );
-
-                            }
+                            entry.target.classList.add(
+                                "visible"
+                            );
 
                         }
-                    );
+
+                    });
 
                 },
 
                 {
-                    threshold: 0.12
+                    threshold: .12
                 }
 
             );
 
 
-        revealElements.forEach(
-            (element) => {
+        revealElements.forEach(element => {
 
-                revealObserver.observe(
-                    element
-                );
+            observer.observe(element);
 
-            }
-        );
+        });
 
 
-        /* =====================================================
-           FEELING CARDS
-        ====================================================== */
+        /* =========================================================
+           SALVAR DIÁRIO AUTOMATICAMENTE
+        ========================================================== */
 
-        const feelingCards =
-            document.querySelectorAll(
-                ".feeling-card"
+        journal.addEventListener("input", () => {
+
+            localStorage.setItem(
+                "acolhe-journal",
+                journal.value
             );
 
-
-        feelingCards.forEach(
-            (card) => {
-
-                card.addEventListener(
-                    "click",
-                    () => {
-
-                        const title =
-                            card.querySelector(
-                                "h3"
-                            ).textContent;
-
-
-                        const section =
-                            document.getElementById(
-                                "recursos"
-                            );
-
-
-                        if (
-                            section
-                        ) {
-
-                            section.scrollIntoView({
-                                behavior:
-                                    "smooth"
-                            });
-
-                        }
-
-                    }
-                );
-
-            }
-        );
-
+        });
 
     </script>
-
 
 </body>
 
