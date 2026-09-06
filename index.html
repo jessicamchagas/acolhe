@@ -4,27 +4,22 @@
 <head>
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
-        content="Acolhe — um espaço digital de autocuidado, reflexão e acolhimento.">
+        content="Acolhe — um espaço digital de acolhimento, reflexão e autocuidado.">
 
     <title>Acolhe | Um espaço para você</title>
 
-    <link rel="preconnect"
-        href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <link rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet"
-        href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -35,13 +30,9 @@
 
         <div class="container nav">
 
-            <a href="#inicio"
-                class="logo">
-
+            <a href="#inicio" class="logo">
                 <span>🌿</span>
-
                 <strong>Acolhe</strong>
-
             </a>
 
             <nav class="menu">
@@ -50,13 +41,13 @@
 
                 <a href="#checkin">Como estou?</a>
 
+                <a href="#acolhe-agora">Acolhe Agora</a>
+
                 <a href="#respirar">Respirar</a>
 
                 <a href="#diario">Diário</a>
 
                 <a href="#hoje">Só por hoje</a>
-
-                <a href="#atividades">Atividades</a>
 
             </nav>
 
@@ -64,9 +55,7 @@
                 class="theme-btn"
                 id="themeBtn"
                 aria-label="Alternar tema">
-
                 🌙
-
             </button>
 
         </div>
@@ -78,73 +67,97 @@
 
         <!-- ================= HERO ================= -->
 
-        <section
-            class="hero"
-            id="inicio">
+        <section class="hero" id="inicio">
 
-            <div class="container hero-content">
+            <div class="container hero-grid">
 
-                <div class="hero-text">
+                <div class="hero-content">
 
                     <span class="eyebrow">
                         🌿 UM ESPAÇO PARA VOCÊ
                     </span>
 
                     <h1>
-                        Você não precisa
-                        <span>resolver tudo</span>
-                        hoje.
+                        Um espaço para
+                        <span>respirar</span>,
+                        desacelerar e se acolher.
                     </h1>
 
                     <p>
-                        Respire. Desacelere.
-                        Se permita fazer uma pausa.
-                        O Acolhe foi criado para ser
-                        um pequeno espaço de cuidado
-                        no meio da correria.
+                        Nem todos os dias precisam ser
+                        produtivos. Às vezes, tudo o que
+                        você precisa é de uma pequena pausa.
                     </p>
 
                     <div class="hero-buttons">
 
-                        <a
-                            href="#checkin"
+                        <a href="#checkin"
                             class="btn primary">
-
-                            💜 Acolhe agora
-
+                            💜 Como estou?
                         </a>
 
-                        <a
-                            href="#respirar"
+                        <a href="#respirar"
                             class="btn secondary">
-
-                            🌬️ Quero respirar
-
+                            🌬️ Respirar
                         </a>
 
                     </div>
 
                 </div>
 
-                <div class="hero-card">
 
-                    <div class="flower">
-                        🌿
+                <div class="hero-visual">
+
+                    <div class="hero-orbit orbit-one"></div>
+
+                    <div class="hero-orbit orbit-two"></div>
+
+                    <div class="hero-main-card">
+
+                        <span class="hero-leaf">
+                            🌿
+                        </span>
+
+                        <small>
+                            LEMBRETE DE HOJE
+                        </small>
+
+                        <h2 id="heroQuote">
+                            Vá com calma.
+                        </h2>
+
+                        <p>
+                            Você não precisa resolver
+                            tudo de uma vez.
+                        </p>
+
                     </div>
 
-                    <span>
-                        lembrete de hoje
-                    </span>
+                </div>
 
-                    <h3>
-                        Vá com calma.
-                    </h3>
+            </div>
 
-                    <p>
-                        Você está fazendo o melhor
-                        que consegue com aquilo
-                        que tem hoje.
+        </section>
+
+
+        <!-- ================= FRASE DO DIA ================= -->
+
+        <section class="mini-message">
+
+            <div class="container">
+
+                <div class="mini-message-content">
+
+                    <span>✨</span>
+
+                    <p id="dailyMessage">
+                        Hoje também é um bom dia
+                        para tratar você com gentileza.
                     </p>
+
+                    <button id="newDailyMessage">
+                        Outra mensagem
+                    </button>
 
                 </div>
 
@@ -155,13 +168,11 @@
 
         <!-- ================= CHECK-IN ================= -->
 
-        <section
-            class="section"
-            id="checkin">
+        <section class="section" id="checkin">
 
             <div class="container">
 
-                <div class="section-heading">
+                <div class="section-heading centered">
 
                     <span>
                         COMO VOCÊ ESTÁ?
@@ -182,98 +193,163 @@
 
                 <div class="emotion-grid">
 
-                    <button
-                        class="emotion"
-                        data-message="Tudo bem se hoje estiver difícil. Vamos dar um pequeno passo de cada vez. 💜">
+                    <button class="emotion"
+                        data-emotion="ansioso">
 
                         <span>😰</span>
-                        <strong>Estou ansioso(a)</strong>
+
+                        <strong>
+                            Estou ansioso(a)
+                        </strong>
+
+                        <small>
+                            Preciso desacelerar
+                        </small>
 
                     </button>
 
 
-                    <button
-                        class="emotion"
-                        data-message="Você não precisa esconder o que sente. Permita-se fazer uma pausa. 🌿">
+                    <button class="emotion"
+                        data-emotion="triste">
 
                         <span>😔</span>
-                        <strong>Estou triste</strong>
+
+                        <strong>
+                            Estou triste
+                        </strong>
+
+                        <small>
+                            Preciso de acolhimento
+                        </small>
 
                     </button>
 
 
-                    <button
-                        class="emotion"
-                        data-message="Quando tudo parece demais, diminuir o ritmo também é uma forma de cuidado. 🫂">
+                    <button class="emotion"
+                        data-emotion="sobrecarregado">
 
                         <span>🫠</span>
-                        <strong>Estou sobrecarregado(a)</strong>
+
+                        <strong>
+                            Estou sobrecarregado(a)
+                        </strong>
+
+                        <small>
+                            Está tudo demais
+                        </small>
 
                     </button>
 
 
-                    <button
-                        class="emotion"
-                        data-message="Sentir-se sozinho(a) pode ser difícil. Talvez hoje seja um bom momento para procurar alguém de confiança. 💜">
+                    <button class="emotion"
+                        data-emotion="sozinho">
 
                         <span>🥺</span>
-                        <strong>Estou sozinho(a)</strong>
+
+                        <strong>
+                            Estou sozinho(a)
+                        </strong>
+
+                        <small>
+                            Preciso de conexão
+                        </small>
 
                     </button>
 
 
-                    <button
-                        class="emotion"
-                        data-message="Seu corpo também precisa de cuidado. Se puder, faça uma pequena pausa. 😴">
+                    <button class="emotion"
+                        data-emotion="energia">
 
                         <span>😴</span>
-                        <strong>Estou sem energia</strong>
+
+                        <strong>
+                            Estou sem energia
+                        </strong>
+
+                        <small>
+                            Preciso descansar
+                        </small>
 
                     </button>
 
 
-                    <button
-                        class="emotion"
-                        data-message="Você não precisa entender tudo agora. Vamos organizar uma coisa de cada vez. 🌱">
+                    <button class="emotion"
+                        data-emotion="confuso">
 
                         <span>😵‍💫</span>
-                        <strong>Estou confuso(a)</strong>
+
+                        <strong>
+                            Estou confuso(a)
+                        </strong>
+
+                        <small>
+                            Preciso organizar
+                        </small>
 
                     </button>
 
 
-                    <button
-                        class="emotion"
-                        data-message="Que bom ter um momento melhor. Aproveite esse instante com calma. 💚">
+                    <button class="emotion"
+                        data-emotion="melhor">
 
                         <span>🙂</span>
-                        <strong>Estou melhor hoje</strong>
+
+                        <strong>
+                            Estou melhor hoje
+                        </strong>
+
+                        <small>
+                            Quero aproveitar
+                        </small>
 
                     </button>
 
 
-                    <button
-                        class="emotion"
-                        data-message="Você pode colocar em palavras aquilo que está sentindo no seu diário. 📝">
+                    <button class="emotion"
+                        data-emotion="outra">
 
                         <span>💭</span>
-                        <strong>Outra coisa</strong>
+
+                        <strong>
+                            Outra coisa
+                        </strong>
+
+                        <small>
+                            Quero colocar para fora
+                        </small>
 
                     </button>
 
                 </div>
 
 
-                <div
-                    class="message-box"
-                    id="emotionMessage">
+                <div class="emotion-response"
+                    id="emotionResponse">
 
-                    <span>🌿</span>
+                    <div class="response-icon">
+                        🌿
+                    </div>
 
-                    <p>
-                        Escolha uma opção acima
-                        para receber uma mensagem.
-                    </p>
+                    <div>
+
+                        <span class="response-label">
+                            ACOLHE
+                        </span>
+
+                        <p id="emotionText">
+                            Escolha como você está
+                            para receber uma mensagem.
+                        </p>
+
+                    </div>
+
+                    <button id="anotherEmotionMessage"
+                        class="message-button"
+                        hidden>
+
+                        ✨ Outra mensagem
+
+                    </button>
 
                 </div>
 
@@ -284,13 +360,14 @@
 
         <!-- ================= ACOLHE AGORA ================= -->
 
-        <section class="now-section">
+        <section class="section acolhe-now"
+            id="acolhe-agora">
 
             <div class="container">
 
                 <div class="now-card">
 
-                    <div>
+                    <div class="now-content">
 
                         <span class="eyebrow">
                             ACOLHE AGORA
@@ -302,19 +379,41 @@
                         </h2>
 
                         <p>
-                            Faça um check-in,
-                            respire e escolha
-                            uma pequena ação de cuidado.
+                            Faça um check-in, respire
+                            um pouco e escolha uma
+                            pequena ação de cuidado.
                         </p>
 
                     </div>
 
-                    <a
-                        href="#respirar"
-                        class="btn primary">
+                    <div class="now-steps">
 
+                        <div>
+                            <span>01</span>
+                            <strong>
+                                Perceba
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>02</span>
+                            <strong>
+                                Respire
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>03</span>
+                            <strong>
+                                Cuide
+                            </strong>
+                        </div>
+
+                    </div>
+
+                    <a href="#respirar"
+                        class="btn light">
                         Começar 🌿
-
                     </a>
 
                 </div>
@@ -326,45 +425,58 @@
 
         <!-- ================= RESPIRAÇÃO ================= -->
 
-        <section
-            class="section breathing-section"
-            id="respirar">
+        <section class="section" id="respirar">
 
             <div class="container">
 
                 <div class="section-heading">
 
                     <span>
-                        RESPIRAÇÃO
+                        RESPIRAR
                     </span>
 
                     <h2>
-                        Vamos respirar juntos.
+                        Vamos diminuir o ritmo.
                     </h2>
 
                     <p>
-                        Encontre um ritmo confortável
-                        e acompanhe o círculo.
+                        Acompanhe o círculo e encontre
+                        um ritmo confortável para você.
                     </p>
 
                 </div>
 
 
-                <div class="breathing">
+                <div class="breathing-card">
 
-                    <div class="breathing-circle">
+                    <div class="breathing-visual">
 
-                        <div id="breathingText">
-                            Pronto?
+                        <div class="breathing-glow"></div>
+
+                        <div class="breathing-circle"
+                            id="breathingCircle">
+
+                            <strong id="breathingText">
+                                Pronto?
+                            </strong>
+
+                            <small id="breathingTimer">
+                                00:00
+                            </small>
+
                         </div>
 
                     </div>
 
 
-                    <div class="breathing-info">
+                    <div class="breathing-content">
 
-                        <h3 id="breathingTitle">
-                            Uma pequena pausa.
+                        <span class="card-label">
+                            PAUSA GUIADA
+                        </span>
+
+                        <h3>
+                            Um momento só seu.
                         </h3>
 
                         <p id="breathingStatus">
@@ -393,9 +505,7 @@
                         <button
                             id="startBreathing"
                             class="btn primary">
-
                             🌬️ Começar
-
                         </button>
 
                     </div>
@@ -409,8 +519,7 @@
 
         <!-- ================= DIÁRIO ================= -->
 
-        <section
-            class="section diary-section"
+        <section class="section soft-section"
             id="diario">
 
             <div class="container">
@@ -433,36 +542,73 @@
                 </div>
 
 
-                <div class="diary">
+                <div class="diary-layout">
 
-                    <textarea
-                        id="diaryText"
-                        placeholder="Escreva aqui o que está passando pela sua cabeça...">
-                    </textarea>
+                    <div class="diary-card">
 
+                        <textarea
+                            id="diaryText"
+                            placeholder="Como você está se sentindo? O que está passando pela sua cabeça? Escreva do seu jeito...">
+                        </textarea>
 
-                    <div class="diary-footer">
+                        <div class="diary-footer">
 
-                        <span id="saveStatus">
-                            Suas reflexões ficam
-                            neste dispositivo.
-                        </span>
+                            <span id="saveStatus">
+                                🔒 Sua reflexão fica
+                                neste dispositivo.
+                            </span>
 
-                        <button
-                            id="saveDiary"
-                            class="btn primary">
+                            <button
+                                id="saveDiary"
+                                class="btn primary">
 
-                            📝 Salvar reflexão
+                                📝 Salvar reflexão
 
-                        </button>
+                            </button>
+
+                        </div>
 
                     </div>
+
+
+                    <aside class="diary-tip">
+
+                        <span>💜</span>
+
+                        <h3>
+                            Não precisa escrever bonito.
+                        </h3>
+
+                        <p>
+                            O diário é seu. Escreva
+                            exatamente como vier.
+                            Uma palavra já pode ser
+                            suficiente.
+                        </p>
+
+                    </aside>
 
                 </div>
 
 
-                <div id="diaryEntries"
-                    class="diary-entries">
+                <div class="entries-section">
+
+                    <div class="entries-title">
+
+                        <h3>
+                            Suas últimas reflexões
+                        </h3>
+
+                        <span id="diaryCountLabel">
+                            0 reflexões
+                        </span>
+
+                    </div>
+
+                    <div id="diaryEntries"
+                        class="diary-entries">
+                    </div>
+
                 </div>
 
             </div>
@@ -472,13 +618,12 @@
 
         <!-- ================= SÓ POR HOJE ================= -->
 
-        <section
-            class="section"
+        <section class="section"
             id="hoje">
 
             <div class="container">
 
-                <div class="section-heading">
+                <div class="section-heading centered">
 
                     <span>
                         SÓ POR HOJE
@@ -489,111 +634,153 @@
                     </h2>
 
                     <p>
-                        Não precisa fazer tudo.
+                        Você não precisa fazer tudo.
                         Escolha o que conseguir.
                     </p>
 
                 </div>
 
 
-                <div class="today-card">
+                <div class="today-layout">
 
-                    <label>
-                        <input
-                            type="checkbox"
-                            class="today-check">
+                    <div class="today-card">
 
-                        <span>💧</span>
+                        <div class="today-header">
 
-                        Bebi água
-                    </label>
+                            <div>
 
+                                <span>
+                                    🌱 SEU DIA
+                                </span>
 
-                    <label>
-                        <input
-                            type="checkbox"
-                            class="today-check">
+                                <h3>
+                                    Um cuidado de cada vez.
+                                </h3>
 
-                        <span>🌬️</span>
+                            </div>
 
-                        Respirei por alguns minutos
-                    </label>
+                            <strong id="todayPercentage">
+                                0%
+                            </strong>
 
-
-                    <label>
-                        <input
-                            type="checkbox"
-                            class="today-check">
-
-                        <span>🚿</span>
-
-                        Tomei um banho
-                    </label>
-
-
-                    <label>
-                        <input
-                            type="checkbox"
-                            class="today-check">
-
-                        <span>🍎</span>
-
-                        Me alimentei
-                    </label>
-
-
-                    <label>
-                        <input
-                            type="checkbox"
-                            class="today-check">
-
-                        <span>🌿</span>
-
-                        Fiz uma pausa
-                    </label>
-
-
-                    <label>
-                        <input
-                            type="checkbox"
-                            class="today-check">
-
-                        <span>💬</span>
-
-                        Conversei com alguém
-                    </label>
-
-
-                    <label>
-                        <input
-                            type="checkbox"
-                            class="today-check">
-
-                        <span>😴</span>
-
-                        Descansei
-                    </label>
-
-
-                    <div
-                        class="progress-container">
-
-                        <div
-                            class="progress-bar"
-                            id="todayProgress">
                         </div>
+
+
+                        <div class="today-list">
+
+                            <label>
+                                <input
+                                    type="checkbox"
+                                    class="today-check">
+                                <span>💧</span>
+                                <strong>
+                                    Bebi água
+                                </strong>
+                            </label>
+
+
+                            <label>
+                                <input
+                                    type="checkbox"
+                                    class="today-check">
+                                <span>🌬️</span>
+                                <strong>
+                                    Respirei alguns minutos
+                                </strong>
+                            </label>
+
+
+                            <label>
+                                <input
+                                    type="checkbox"
+                                    class="today-check">
+                                <span>🚿</span>
+                                <strong>
+                                    Tomei um banho
+                                </strong>
+                            </label>
+
+
+                            <label>
+                                <input
+                                    type="checkbox"
+                                    class="today-check">
+                                <span>🍎</span>
+                                <strong>
+                                    Me alimentei
+                                </strong>
+                            </label>
+
+
+                            <label>
+                                <input
+                                    type="checkbox"
+                                    class="today-check">
+                                <span>🌿</span>
+                                <strong>
+                                    Fiz uma pausa
+                                </strong>
+                            </label>
+
+
+                            <label>
+                                <input
+                                    type="checkbox"
+                                    class="today-check">
+                                <span>💬</span>
+                                <strong>
+                                    Conversei com alguém
+                                </strong>
+                            </label>
+
+
+                            <label>
+                                <input
+                                    type="checkbox"
+                                    class="today-check">
+                                <span>😴</span>
+                                <strong>
+                                    Descansei
+                                </strong>
+                            </label>
+
+                        </div>
+
+
+                        <div class="progress-container">
+
+                            <div class="progress-bar"
+                                id="todayProgress">
+                            </div>
+
+                        </div>
+
+
+                        <p id="todayMessage"
+                            class="today-message">
+                            Comece com uma pequena coisa.
+                            🌱
+                        </p>
 
                     </div>
 
 
-                    <p
-                        id="todayMessage"
-                        class="today-message">
+                    <div class="today-side">
 
-                        Você não precisa completar tudo.
-                        🌱
+                        <span>🌿</span>
 
-                    </p>
+                        <h3>
+                            Não é sobre fazer tudo.
+                        </h3>
+
+                        <p>
+                            Cuidar de si também pode
+                            significar fazer menos,
+                            descansar e respeitar seus
+                            próprios limites.
+                        </p>
+
+                    </div>
 
                 </div>
 
@@ -604,8 +791,7 @@
 
         <!-- ================= ATIVIDADES ================= -->
 
-        <section
-            class="section"
+        <section class="section soft-section"
             id="atividades">
 
             <div class="container">
@@ -613,111 +799,103 @@
                 <div class="section-heading">
 
                     <span>
-                        PEQUENAS ATIVIDADES
+                        PEQUENAS PAUSAS
                     </span>
 
                     <h2>
-                        Escolha uma pequena pausa.
+                        Escolha algo para fazer por você.
                     </h2>
 
                 </div>
 
 
-                <div class="activities">
+                <div class="activities-grid">
 
-                    <article class="activity">
+                    <article class="activity-card">
 
-                        <span>🎧</span>
-
-                        <div>
-
-                            <small>
-                                5 MINUTOS
-                            </small>
-
-                            <h3>
-                                Escute uma música
-                            </h3>
-
-                            <p>
-                                Escolha uma música que
-                                você gosta e escute sem
-                                fazer outra coisa.
-                            </p>
-
+                        <div class="activity-icon">
+                            🎧
                         </div>
+
+                        <span>
+                            5 MINUTOS
+                        </span>
+
+                        <h3>
+                            Escute uma música
+                        </h3>
+
+                        <p>
+                            Escolha uma música que
+                            você gosta e escute sem
+                            fazer outra coisa.
+                        </p>
 
                     </article>
 
 
-                    <article class="activity">
+                    <article class="activity-card">
 
-                        <span>🚶</span>
-
-                        <div>
-
-                            <small>
-                                10 MINUTOS
-                            </small>
-
-                            <h3>
-                                Caminhe um pouco
-                            </h3>
-
-                            <p>
-                                Se for possível, caminhe
-                                em um lugar tranquilo.
-                            </p>
-
+                        <div class="activity-icon">
+                            🚶
                         </div>
+
+                        <span>
+                            10 MINUTOS
+                        </span>
+
+                        <h3>
+                            Caminhe um pouco
+                        </h3>
+
+                        <p>
+                            Se for possível, caminhe
+                            em um lugar tranquilo.
+                        </p>
 
                     </article>
 
 
-                    <article class="activity">
+                    <article class="activity-card">
 
-                        <span>📝</span>
-
-                        <div>
-
-                            <small>
-                                10 MINUTOS
-                            </small>
-
-                            <h3>
-                                Escreva livremente
-                            </h3>
-
-                            <p>
-                                Escreva tudo que vier
-                                à cabeça, sem editar.
-                            </p>
-
+                        <div class="activity-icon">
+                            📝
                         </div>
+
+                        <span>
+                            10 MINUTOS
+                        </span>
+
+                        <h3>
+                            Escreva livremente
+                        </h3>
+
+                        <p>
+                            Coloque no papel aquilo
+                            que estiver ocupando sua cabeça.
+                        </p>
 
                     </article>
 
 
-                    <article class="activity">
+                    <article class="activity-card">
 
-                        <span>🌿</span>
-
-                        <div>
-
-                            <small>
-                                20 MINUTOS
-                            </small>
-
-                            <h3>
-                                Faça algo que você gosta
-                            </h3>
-
-                            <p>
-                                Reserve alguns minutos
-                                para uma atividade prazerosa.
-                            </p>
-
+                        <div class="activity-icon">
+                            🌿
                         </div>
+
+                        <span>
+                            20 MINUTOS
+                        </span>
+
+                        <h3>
+                            Faça algo que gosta
+                        </h3>
+
+                        <p>
+                            Reserve alguns minutos
+                            para uma atividade prazerosa.
+                        </p>
 
                     </article>
 
@@ -730,24 +908,35 @@
 
         <!-- ================= PROGRESSO ================= -->
 
-        <section class="progress-section">
+        <section class="section">
 
             <div class="container">
 
                 <div class="progress-card">
 
-                    <span class="eyebrow">
-                        SEU MOMENTO
-                    </span>
+                    <div class="progress-heading">
 
-                    <h2>
-                        Pequenos passos também
-                        são progresso. 🌱
-                    </h2>
+                        <span class="eyebrow">
+                            SEU PROGRESSO
+                        </span>
+
+                        <h2>
+                            Pequenos passos também
+                            são progresso. 🌱
+                        </h2>
+
+                        <p>
+                            Veja alguns dos momentos
+                            de cuidado registrados neste dispositivo.
+                        </p>
+
+                    </div>
+
 
                     <div class="stats">
 
-                        <div>
+                        <div class="stat">
+
                             <strong id="checkinCount">
                                 0
                             </strong>
@@ -755,10 +944,12 @@
                             <span>
                                 check-ins
                             </span>
+
                         </div>
 
 
-                        <div>
+                        <div class="stat">
+
                             <strong id="breathingCount">
                                 0
                             </strong>
@@ -766,10 +957,12 @@
                             <span>
                                 respirações
                             </span>
+
                         </div>
 
 
-                        <div>
+                        <div class="stat">
+
                             <strong id="diaryCount">
                                 0
                             </strong>
@@ -777,10 +970,12 @@
                             <span>
                                 reflexões
                             </span>
+
                         </div>
 
 
-                        <div>
+                        <div class="stat">
+
                             <strong id="activityCount">
                                 0
                             </strong>
@@ -788,6 +983,7 @@
                             <span>
                                 cuidados
                             </span>
+
                         </div>
 
                     </div>
@@ -799,20 +995,130 @@
         </section>
 
 
-        <!-- ================= FRASE ================= -->
+        <!-- ================= CONQUISTAS ================= -->
 
-        <section class="quote-section">
+        <section class="section achievements-section">
 
             <div class="container">
 
-                <p>
-                    “Você não precisa florescer
-                    todos os dias.”
-                </p>
+                <div class="section-heading centered">
 
-                <span>
-                    🌿
-                </span>
+                    <span>
+                        CONQUISTAS
+                    </span>
+
+                    <h2>
+                        Cada pequeno passo conta.
+                    </h2>
+
+                </div>
+
+
+                <div class="achievements-grid">
+
+                    <div class="achievement"
+                        id="achievementFirst">
+
+                        <span>🌱</span>
+
+                        <div>
+                            <strong>
+                                Primeiro passo
+                            </strong>
+
+                            <small>
+                                Faça seu primeiro check-in.
+                            </small>
+                        </div>
+
+                        <b>🔒</b>
+
+                    </div>
+
+
+                    <div class="achievement"
+                        id="achievementBreath">
+
+                        <span>🌬️</span>
+
+                        <div>
+                            <strong>
+                                Respira
+                            </strong>
+
+                            <small>
+                                Complete uma respiração.
+                            </small>
+                        </div>
+
+                        <b>🔒</b>
+
+                    </div>
+
+
+                    <div class="achievement"
+                        id="achievementDiary">
+
+                        <span>📝</span>
+
+                        <div>
+                            <strong>
+                                Colocando para fora
+                            </strong>
+
+                            <small>
+                                Escreva sua primeira reflexão.
+                            </small>
+                        </div>
+
+                        <b>🔒</b>
+
+                    </div>
+
+
+                    <div class="achievement"
+                        id="achievementCare">
+
+                        <span>💜</span>
+
+                        <div>
+                            <strong>
+                                Cuidando de mim
+                            </strong>
+
+                            <small>
+                                Complete um cuidado.
+                            </small>
+                        </div>
+
+                        <b>🔒</b>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FRASE FINAL ================= -->
+
+        <section class="final-quote">
+
+            <div class="container">
+
+                <span>🌿</span>
+
+                <h2>
+                    Você não precisa florescer
+                    todos os dias.
+                </h2>
+
+                <p>
+                    Às vezes, continuar crescendo
+                    também significa descansar.
+                </p>
 
             </div>
 
@@ -821,21 +1127,26 @@
 
         <!-- ================= AJUDA ================= -->
 
-        <section
-            class="help-section"
+        <section class="section help-section"
             id="ajuda">
 
             <div class="container">
 
                 <div class="help-card">
 
-                    <span>💜</span>
+                    <div class="help-icon">
+                        💜
+                    </div>
 
                     <div>
 
+                        <span class="card-label">
+                            UM LEMBRETE IMPORTANTE
+                        </span>
+
                         <h2>
-                            Você não precisa
-                            passar por tudo sozinho(a).
+                            Você não precisa passar
+                            por tudo sozinho(a).
                         </h2>
 
                         <p>
@@ -868,8 +1179,7 @@
             </div>
 
             <p>
-                Um pequeno espaço para
-                você respirar.
+                Um pequeno espaço para você respirar.
             </p>
 
             <span>
